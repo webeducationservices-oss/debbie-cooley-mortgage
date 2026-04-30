@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Free Refinance Break-Even Calculator | Debbie Cooley Mortgage</title>
+<meta name="description" content="Calculate exactly how many months until your refinance pays for itself. Free, no email required. Includes monthly savings, 5-year savings, and lifetime cost comparison.">
+<link rel="canonical" href="https://debbiecooleymortgage.com/tools/refinance-calculator/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Refinance Break-Even Calculator | Debbie Cooley Mortgage">
+<meta property="og:description" content="Calculate exactly how many months until your refinance pays for itself. Free, no email required. Includes monthly savings, 5-year savings, and lifetime cost comparison.">
+<meta property="og:image" content="https://debbiecooleymortgage.com/images/og-image.jpg">
+<meta property="og:url" content="https://debbiecooleymortgage.com/tools/refinance-calculator/">
+<meta property="og:site_name" content="Debbie Cooley Mortgage">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<link rel="preload" as="font" type="font/woff2" href="/fonts/inter.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display.woff2" crossorigin>
+
+<link rel="stylesheet" href="/styles.css">
+
+<!-- Google Consent Mode v2 (defaults to denied for ads, granted for analytics) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M267MT4');</script>
+
+<!-- Google Analytics 4 (direct, in addition to GTM, since both are on the live site) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-98VMJ2223D"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-98VMJ2223D');
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh" async defer></script>
+<script src="/components.js" defer></script>
+
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M267MT4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+<header class="site-header">
+  <div class="header-top">
+    <div class="container">
+      <div class="header-top-left">
+        <a href="tel:7276882851" aria-label="Call Debbie">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-688-2851
+        </a>
+        <span style="opacity:.5">|</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mon–Fri 8am–6pm</span>
+      </div>
+      <div class="header-top-right">
+        <span>NMLS# 210817 &middot; IMS NMLS# 250769</span>
+      </div>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container">
+      <a href="/" class="brand" aria-label="Debbie Cooley Mortgage home">
+        <img src="/images/logo-monogram.webp" alt="Debbie Cooley Mortgage monogram" width="60" height="60">
+        <div class="brand-text">
+          <span class="brand-name">Debbie Cooley Mortgage</span>
+          <span class="brand-tag">Where a Broker Is Always Better</span>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <div class="nav-item">
+          <a href="/loan-programs/">Loan Programs <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <a href="/conventional-loans/"><strong>Conventional</strong><span>Traditional fixed &amp; adjustable financing</span></a>
+            <a href="/fha-loans/"><strong>FHA</strong><span>Lower credit thresholds, 3.5% down</span></a>
+            <a href="/va-loans/"><strong>VA</strong><span>Veterans &amp; active duty — $0 down</span></a>
+            <a href="/first-time-buyer/"><strong>First-Time Buyer</strong><span>Down payment assistance &amp; programs</span></a>
+            <a href="/reverse-mortgage/"><strong>Reverse Mortgage</strong><span>HECM &amp; proprietary, age 62+</span></a>
+            <a href="/refinance/"><strong>Refinance &amp; HELOC</strong><span>Lower rate, cash out, equity access</span></a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="/resources/">Resources <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <a href="/tools/refinance-calculator/"><strong>Refinance Calculator</strong><span>See your break-even month</span></a>
+            <a href="/tools/reverse-mortgage-quiz/"><strong>Reverse Mortgage Quiz</strong><span>Is it right for you? 10 questions</span></a>
+            <a href="/resources/first-time-homebuyer-roadmap/"><strong>First-Time Buyer Roadmap</strong><span>Free guide (PDF)</span></a>
+            <a href="/resources/5-questions-to-ask-any-mortgage-broker/"><strong>5 Questions to Ask Any Broker</strong><span>Before you trust them with $400K</span></a>
+            <div class="dropdown-divider"></div>
+            <a href="/blog/"><strong>Blog</strong><span>Mortgage insights &amp; market notes</span></a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="/about/">About <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <a href="/about/"><strong>About Debbie</strong><span>40+ years &amp; the people behind the practice</span></a>
+            <a href="/reviews/"><strong>Client Reviews</strong><span>What clients say</span></a>
+            <a href="/faq/"><strong>FAQ</strong><span>Common mortgage questions</span></a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/areas-served/">Areas Served</a></div>
+        <div class="nav-item"><a href="/contact/" class="nav-cta">Get Started</a></div>
+      </nav>
+      <button class="mobile-toggle" aria-label="Open menu" id="menuOpen">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <button class="mobile-nav-close" aria-label="Close menu" id="menuClose">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <details>
+      <summary>Loan Programs</summary>
+      <a href="/loan-programs/">All Programs Overview</a>
+      <a href="/conventional-loans/">Conventional</a>
+      <a href="/fha-loans/">FHA</a>
+      <a href="/va-loans/">VA</a>
+      <a href="/first-time-buyer/">First-Time Buyer</a>
+      <a href="/reverse-mortgage/">Reverse Mortgage</a>
+      <a href="/refinance/">Refinance &amp; HELOC</a>
+    </details>
+    <details>
+      <summary>Resources</summary>
+      <a href="/resources/">All Resources</a>
+      <a href="/tools/refinance-calculator/">Refinance Calculator</a>
+      <a href="/tools/reverse-mortgage-quiz/">Reverse Mortgage Quiz</a>
+      <a href="/resources/first-time-homebuyer-roadmap/">First-Time Buyer Roadmap</a>
+      <a href="/resources/5-questions-to-ask-any-mortgage-broker/">5 Questions to Ask Any Broker</a>
+      <a href="/blog/">Blog</a>
+    </details>
+    <details>
+      <summary>About</summary>
+      <a href="/about/">About Debbie</a>
+      <a href="/reviews/">Client Reviews</a>
+      <a href="/faq/">FAQ</a>
+    </details>
+    <a href="/areas-served/">Areas Served</a>
+    <a href="tel:7276882851">Call 727-688-2851</a>
+    <a href="/contact/" class="cta">Get Started</a>
+  </div>
+</div>
+<main id="main">
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="/">Home</a> <span class="sep">›</span> <a href="/resources/">Resources</a> <span class="sep">›</span> <span>Refinance Calculator</span></div>
+    <h1>Refinance Break-Even Calculator.</h1>
+    <p class="lead">The single most important refinance number is the break-even month — how long it takes for monthly savings to recoup the closing costs. Enter your numbers below.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="calc-wrap" style="max-width:820px">
+      <h3 style="font-family:var(--font-sans);font-weight:600;font-size:1.1rem;margin-bottom:20px;color:var(--charcoal)">Your current loan</h3>
+      <div class="calc-grid">
+        <div class="form-group">
+          <label for="refiBalance">Current loan balance</label>
+          <input type="text" id="refiBalance" value="$280,000" inputmode="decimal" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="refiCurrentRate">Current interest rate (%)</label>
+          <input type="number" id="refiCurrentRate" value="7.25" min="0.5" max="20" step="0.05">
+        </div>
+        <div class="form-group">
+          <label for="refiCurrentTerm">Years remaining on current loan</label>
+          <input type="number" id="refiCurrentTerm" value="27" min="1" max="40" step="1">
+        </div>
+        <div class="form-group">
+          <label for="refiCurrentPayment">Current monthly payment (P&amp;I only)</label>
+          <input type="text" id="refiCurrentPayment" value="$1,910" inputmode="decimal" autocomplete="off">
+        </div>
+      </div>
+
+      <h3 style="font-family:var(--font-sans);font-weight:600;font-size:1.1rem;margin:28px 0 20px;color:var(--charcoal)">Your refinance terms</h3>
+      <div class="calc-grid">
+        <div class="form-group">
+          <label for="refiNewRate">New interest rate (%)</label>
+          <input type="number" id="refiNewRate" value="6.25" min="0.5" max="20" step="0.05">
+        </div>
+        <div class="form-group">
+          <label for="refiNewTerm">New loan term (years)</label>
+          <select id="refiNewTerm">
+            <option value="30">30 years</option>
+            <option value="20">20 years</option>
+            <option value="15">15 years</option>
+            <option value="10">10 years</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="refiClosingCosts">Closing costs (financed or paid)</label>
+          <input type="text" id="refiClosingCosts" value="$5,500" inputmode="decimal" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="refiCashOut">Cash out (optional)</label>
+          <input type="text" id="refiCashOut" value="$0" inputmode="decimal" autocomplete="off">
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" id="refiCalcBtn" style="width:100%;margin-top:8px">Calculate Break-Even</button>
+
+      <div id="refiResult" style="display:none; margin-top: 28px;">
+        <div style="background:var(--teal); color:var(--white); border-radius:var(--radius-lg); padding:32px; text-align:center;">
+          <div style="font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.85; margin-bottom:8px">YOU BREAK EVEN AFTER</div>
+          <div id="refiBreakEven" style="font-family:var(--font-serif); font-size:3.5rem; line-height:1; margin-bottom:8px">— months</div>
+          <div id="refiVerdict" style="font-size:1.05rem; opacity:0.95"></div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; margin-top:20px;">
+          <div style="background:var(--cream); padding:20px; border-radius:var(--radius-lg);">
+            <div style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px">New Monthly P&amp;I</div>
+            <div id="refiNewPmt" style="font-family:var(--font-serif); font-size:1.6rem; color:var(--teal-dark); font-weight:600">—</div>
+          </div>
+          <div style="background:var(--cream); padding:20px; border-radius:var(--radius-lg);">
+            <div style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px">Monthly Savings</div>
+            <div id="refiSavings" style="font-family:var(--font-serif); font-size:1.6rem; color:var(--teal-dark); font-weight:600">—</div>
+          </div>
+          <div style="background:var(--cream); padding:20px; border-radius:var(--radius-lg);">
+            <div style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px">5-Year Total Savings</div>
+            <div id="refi5yr" style="font-family:var(--font-serif); font-size:1.6rem; color:var(--teal-dark); font-weight:600">—</div>
+          </div>
+          <div style="background:var(--cream); padding:20px; border-radius:var(--radius-lg);">
+            <div style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px">Lifetime Savings (vs. current)</div>
+            <div id="refiLifetime" style="font-family:var(--font-serif); font-size:1.6rem; color:var(--teal-dark); font-weight:600">—</div>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: 24px;">
+          <a href="/contact/" class="btn btn-primary">Get a Real Refinance Quote →</a>
+        </div>
+      </div>
+
+      <p class="calc-disclaimer" style="margin-top: 24px;"><strong>For estimation only.</strong> This calculator illustrates monthly principal &amp; interest savings and a basic break-even calculation based on your inputs. It does not include changes to escrow (taxes, insurance), PMI/MIP changes, or the time value of money. It is not a loan offer, rate quote, pre-qualification, or commitment to lend. Actual savings depend on credit, property, program, and current rates. <a href="/contact/">Contact Debbie</a> for a personalized analysis.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <div class="prose">
+      <h2>How to read your break-even number</h2>
+      <p><strong>Under 24 months?</strong> A refinance is almost always worth it if you plan to stay in the home for at least that long. The savings beyond the break-even date are pure benefit.</p>
+      <p><strong>24 to 48 months?</strong> Worth refinancing if you're confident you'll stay in the home and not refinance again in the next 4–5 years.</p>
+      <p><strong>Over 48 months?</strong> Refinance becomes harder to justify unless you have a specific reason (consolidating debt, eliminating PMI, switching from ARM to fixed). Consider whether a no-closing-cost refinance structure might make more sense — Debbie can run that comparison.</p>
+
+      <h2>What this calculator doesn't capture</h2>
+      <p>A few things to keep in mind:</p>
+      <ul>
+        <li><strong>Resetting the amortization clock</strong> — refinancing into a new 30-year loan stretches your remaining term back to 30 years, which means more total interest paid over the life of the loan, even at a lower rate. The "Lifetime Savings" number above accounts for this.</li>
+        <li><strong>Tax implications</strong> — mortgage interest may be tax-deductible. Consult a tax professional.</li>
+        <li><strong>PMI changes</strong> — if you've gained equity since your original loan, refinancing might let you drop PMI, which is additional savings beyond the rate reduction.</li>
+        <li><strong>No-closing-cost structures</strong> — some refinances waive closing costs in exchange for a slightly higher rate. This can be the right choice when you don't plan to keep the loan long enough to recoup traditional closing costs.</li>
+      </ul>
+
+      <h2>Get a real refinance quote</h2>
+      <p>This calculator uses estimates. For actual rates and a precise refinance analysis based on your credit, current loan, and property, schedule a free 15-minute consultation. Debbie will run a side-by-side comparison from multiple wholesale lenders.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  const parseM = v => Number(String(v).replace(/[^0-9.]/g, '')) || 0;
+
+  function pmt(p, r, n) {
+    if (r === 0) return p / n;
+    return p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+  }
+
+  function calc() {
+    const balance = parseM(document.getElementById('refiBalance').value);
+    const curRate = Number(document.getElementById('refiCurrentRate').value);
+    const curYrs = Number(document.getElementById('refiCurrentTerm').value);
+    let curPmt = parseM(document.getElementById('refiCurrentPayment').value);
+    const newRate = Number(document.getElementById('refiNewRate').value);
+    const newYrs = Number(document.getElementById('refiNewTerm').value);
+    const closing = parseM(document.getElementById('refiClosingCosts').value);
+    const cashOut = parseM(document.getElementById('refiCashOut').value);
+
+    // Auto-calculate current payment if blank or zero
+    if (curPmt === 0) {
+      curPmt = pmt(balance, curRate / 100 / 12, curYrs * 12);
+    }
+
+    const newLoanAmt = balance + closing + cashOut;
+    const newPmt = pmt(newLoanAmt, newRate / 100 / 12, newYrs * 12);
+    const monthlySavings = curPmt - newPmt;
+    const breakEven = monthlySavings > 0 ? Math.ceil(closing / monthlySavings) : null;
+
+    // Lifetime calc — total interest current vs. new
+    const remainingPaymentsCurrent = curYrs * 12;
+    const totalIntCurrent = (curPmt * remainingPaymentsCurrent) - balance;
+    const totalIntNew = (newPmt * (newYrs * 12)) - newLoanAmt;
+    const lifetimeSavings = totalIntCurrent - totalIntNew - closing - cashOut;
+
+    document.getElementById('refiNewPmt').textContent = fmt.format(newPmt);
+    document.getElementById('refiSavings').textContent = monthlySavings > 0 ? fmt.format(monthlySavings) + '/mo' : '—';
+    document.getElementById('refi5yr').textContent = monthlySavings > 0 ? fmt.format(monthlySavings * 60 - closing) : '—';
+    document.getElementById('refiLifetime').textContent = fmt.format(lifetimeSavings);
+
+    if (breakEven === null || breakEven > 480) {
+      document.getElementById('refiBreakEven').textContent = '—';
+      document.getElementById('refiVerdict').textContent = 'These terms do not produce monthly savings. Try a different rate or term.';
+    } else {
+      const yrs = Math.floor(breakEven / 12);
+      const mos = breakEven % 12;
+      let txt = breakEven + ' months';
+      if (yrs >= 1) txt = yrs + (yrs === 1 ? ' year' : ' years') + (mos > 0 ? ' ' + mos + (mos === 1 ? ' month' : ' months') : '');
+      document.getElementById('refiBreakEven').textContent = txt;
+
+      let verdict = '';
+      if (breakEven <= 24) verdict = 'Strong refinance candidate. Savings begin quickly.';
+      else if (breakEven <= 48) verdict = 'Refinance worth considering if you plan to stay in the home long-term.';
+      else verdict = 'Long break-even. Refinance only if you have a specific strategic reason.';
+      document.getElementById('refiVerdict').textContent = verdict;
+    }
+
+    document.getElementById('refiResult').style.display = 'block';
+    document.getElementById('refiResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.getElementById('refiCalcBtn').addEventListener('click', calc);
+  ['refiBalance','refiCurrentPayment','refiClosingCosts','refiCashOut'].forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('blur', () => {
+      const n = parseM(el.value);
+      if (n > 0) el.value = fmt.format(n);
+    });
+    el.addEventListener('focus', () => { el.value = String(parseM(el.value) || ''); });
+  });
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/logo-monogram.webp" alt="Debbie Cooley Mortgage" width="56" height="56">
+        <h3>Debbie Cooley Mortgage</h3>
+        <p class="footer-tag">Where a Broker Is Always Better</p>
+        <p>Independent Florida mortgage broker serving Pasco, Pinellas &amp; Hillsborough Counties since 1984.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/DebbieCooleymortgage/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/debbiecooleyguy/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/debbiecooleymortgage/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCzzZ6Tz-GzcJHmdVkH_S-8g" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.95-.5-5.85a3 3 0 0 0-2.12-2.13C18.49 3.5 12 3.5 12 3.5s-6.49 0-8.38.52A3 3 0 0 0 1.5 6.15C1 8.05 1 12 1 12s0 3.95.5 5.85a3 3 0 0 0 2.12 2.13c1.89.52 8.38.52 8.38.52s6.49 0 8.38-.52a3 3 0 0 0 2.12-2.13C23 15.95 23 12 23 12z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98" fill="#FFF"/></svg>
+          </a>
+          <a href="https://share.google/rrhWMI5hn6wyYMmpK" target="_blank" rel="noopener" aria-label="Google Business Profile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Loan Programs</h4>
+        <a href="/conventional-loans/">Conventional</a>
+        <a href="/fha-loans/">FHA Loans</a>
+        <a href="/va-loans/">VA Loans</a>
+        <a href="/reverse-mortgage/">Reverse Mortgages</a>
+        <a href="/first-time-buyer/">First-Time Buyer</a>
+        <a href="/refinance/">Refinance &amp; HELOC</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tools &amp; Resources</h4>
+        <a href="/tools/refinance-calculator/">Refinance Calculator</a>
+        <a href="/tools/reverse-mortgage-quiz/">Reverse Mortgage Quiz</a>
+        <a href="/resources/first-time-homebuyer-roadmap/">First-Time Buyer Roadmap</a>
+        <a href="/resources/5-questions-to-ask-any-mortgage-broker/">5 Questions to Ask</a>
+        <a href="/blog/">Blog</a>
+        <a href="/faq/">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:7276882851">727-688-2851</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+          <a href="mailto:debbie@debbiecooleymortgage.com">debbie@debbiecooleymortgage.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Mon–Fri 8am–6pm<br>Sat–Sun: Closed</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>New Port Richey, FL<br>In-person, broker-comes-to-you service</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-compliance">
+      <div class="ehl">
+        <svg width="34" height="34" viewBox="0 0 64 64" fill="currentColor" aria-label="Equal Housing Opportunity">
+          <path d="M32 4 L4 28 L12 28 L12 56 L52 56 L52 28 L60 28 Z M22 36 L42 36 L42 40 L22 40 Z M22 44 L42 44 L42 48 L22 48 Z"/>
+        </svg>
+        <div><strong>Equal Housing Opportunity Lender.</strong><br>We do business in accordance with the Federal Fair Housing Law and the Equal Credit Opportunity Act.</div>
+      </div>
+      <p><strong>Debbie Cooley</strong> | Mortgage Loan Originator | NMLS# 210817 &middot; <strong>Innovative Mortgage Services, Inc.</strong> | NMLS# 250769 &middot; <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/210817" target="_blank" rel="noopener nofollow">NMLS Consumer Access</a></p>
+      <p>Licensed by the Florida Office of Financial Regulation. This site is for informational purposes only. Information provided is not an offer to lend, a loan commitment, or a guarantee of any specific loan terms or rates. Loan approval is subject to credit, income, asset, property, and program qualification. Rates, terms, and programs subject to change without notice. Not all applicants will qualify. Consult a tax professional regarding the deductibility of interest.</p>
+      <p>Reverse mortgage borrowers are required to obtain an eligibility certificate by receiving counseling from a HUD-approved counseling agency. Borrowers must continue to pay property taxes, homeowner's insurance, and maintain the property to retain the loan in good standing.</p>
+      <p style="font-size:0.72rem; opacity:0.6">Protected by reCAPTCHA. <a href="https://policies.google.com/privacy">Privacy</a> &middot; <a href="https://policies.google.com/terms">Terms</a></p>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year">2026</span> Debbie Cooley Mortgage. All rights reserved.</span>
+      <span><a href="/privacy/">Privacy Policy</a> &middot; <a href="/disclaimer/">Legal Disclaimer</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

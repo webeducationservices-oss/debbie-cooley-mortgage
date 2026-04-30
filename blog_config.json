@@ -1,0 +1,43 @@
+{
+  "enabled": true,
+  "index_page": "blog.html",
+  "post_folder": "blog",
+  "image_folder": "images/blog",
+  "reference_post": "blog/first-time-home-buyer-loans-overview.html",
+  "card_container_selector": "#postGrid",
+  "card_class": "post-card",
+  "filter_mechanism": "data-attribute",
+  "filter_attribute": "data-cat",
+  "filter_selector": null,
+  "categories": [
+    "First-Time Buyers",
+    "Reverse Mortgage",
+    "Refinance & Equity",
+    "Florida Market",
+    "Senior & Retirement"
+  ],
+  "tags": [],
+  "layouts": [
+    "faq",
+    "two-column",
+    "cards",
+    "quote",
+    "cta",
+    "callout"
+  ],
+  "meta": {
+    "default_author": "Debbie Cooley",
+    "default_author_type": "Person",
+    "image_format": "jpg",
+    "update_sitemap": true,
+    "sitemap_path": "sitemap.xml",
+    "sidebar_includes_related": true,
+    "sidebar_includes_cta": true,
+    "cta_text": "Get Started",
+    "cta_href": "/contact/",
+    "publisher_type": "Organization",
+    "publisher_name": "Debbie Cooley Mortgage",
+    "publisher_logo": "https://debbiecooleymortgage.com/images/logo-monogram.webp",
+    "blog_url_prefix": "/blog/"
+  }
+}

@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Build scripts (Python — not needed for hosting)
+_build_*.py
+__pycache__/
+
+# Local preview
+.claude/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

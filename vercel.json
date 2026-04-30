@@ -1,0 +1,431 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        }
+      ]
+    },
+    {
+      "source": "/fonts/(.*).woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/downloads/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/money-for-first-time-home-buyers",
+      "destination": "/blog/money-for-first-time-home-buyers/",
+      "permanent": true
+    },
+    {
+      "source": "/unlocking-dreams",
+      "destination": "/blog/unlocking-dreams/",
+      "permanent": true
+    },
+    {
+      "source": "/first-time-home-buyer-loans",
+      "destination": "/blog/first-time-home-buyer-loans-overview/",
+      "permanent": true
+    },
+    {
+      "source": "/a-living-legacy-how-one-new-port-richey-couple-used-a-reverse-mortgage-to-gift-their-grandchildren-25000-each-for-christmas",
+      "destination": "/blog/living-legacy-reverse-mortgage-grandchildren/",
+      "permanent": true
+    },
+    {
+      "source": "/helping-your-clients-help-their-parents-why-financial-planners-should-consider-reverse-mortgages",
+      "destination": "/blog/financial-planners-should-consider-reverse-mortgages/",
+      "permanent": true
+    },
+    {
+      "source": "/take-a-second-to-breath",
+      "destination": "/blog/take-a-second-to-breathe/",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-the-homestead-exemption-in-florida",
+      "destination": "/blog/florida-homestead-exemption/",
+      "permanent": true
+    },
+    {
+      "source": "/reverse-mortgages-for-home-healthcare-leveraging-your-home-equity",
+      "destination": "/blog/reverse-mortgages-for-home-healthcare/",
+      "permanent": true
+    },
+    {
+      "source": "/reverse-mortgage-used-for-dream-home-purchase",
+      "destination": "/blog/reverse-mortgage-for-dream-home-purchase/",
+      "permanent": true
+    },
+    {
+      "source": "/why-more-financial-advisors-are-recommending-reverse-mortgages",
+      "destination": "/blog/why-financial-advisors-recommend-reverse-mortgages/",
+      "permanent": true
+    },
+    {
+      "source": "/5-ways-to-finance-generational-housing-from-traditional-mortgages-to-creative-solutions",
+      "destination": "/blog/5-ways-to-finance-generational-housing/",
+      "permanent": true
+    },
+    {
+      "source": "/demystifying-reverse-mortgages",
+      "destination": "/blog/demystifying-reverse-mortgages/",
+      "permanent": true
+    },
+    {
+      "source": "/conventional-mortgage-requirements-for-condos",
+      "destination": "/blog/conventional-mortgage-requirements-for-condos/",
+      "permanent": true
+    },
+    {
+      "source": "/how-a-reverse-mortgage-can-help-seniors-purchase-a-home",
+      "destination": "/blog/reverse-mortgage-helps-seniors-purchase-home/",
+      "permanent": true
+    },
+    {
+      "source": "/financially-preparing-for-divorce-managing-your-mortgage-and-credit-cards",
+      "destination": "/blog/preparing-for-divorce-mortgage-credit/",
+      "permanent": true
+    },
+    {
+      "source": "/should-i-wait-to-buy-a-house",
+      "destination": "/blog/should-i-wait-to-buy-a-house/",
+      "permanent": true
+    },
+    {
+      "source": "/first-time-homebuyer",
+      "destination": "/blog/first-time-homebuyer-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/guide-to-reverse-mortgage-for-children-and-their-heirs",
+      "destination": "/blog/reverse-mortgage-guide-for-heirs/",
+      "permanent": true
+    },
+    {
+      "source": "/debbie-cooley-guy-knows-the-trinity-reverse-mortgage-market",
+      "destination": "/blog/trinity-reverse-mortgage-market/",
+      "permanent": true
+    },
+    {
+      "source": "/banks-vs-mortgage-brokers-why-a-mortgage-broker-is-the-better-choice",
+      "destination": "/blog/banks-vs-mortgage-brokers/",
+      "permanent": true
+    },
+    {
+      "source": "/the-florida-hometown-heroes-housing-program",
+      "destination": "/blog/florida-hometown-heroes-housing-program/",
+      "permanent": true
+    },
+    {
+      "source": "/tips-for-millennial-homebuyers",
+      "destination": "/blog/tips-for-millennial-homebuyers/",
+      "permanent": true
+    },
+    {
+      "source": "/self-employed-buying-a-new-home-in-2023-things-to-know",
+      "destination": "/blog/self-employed-buying-a-home-things-to-know/",
+      "permanent": true
+    },
+    {
+      "source": "/jonathan-success-story-maximizing-his-investment-portfolio-with-the-right-mortgage",
+      "destination": "/blog/jonathan-success-investment-portfolio-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/improve-retirement-with-no-monthly-mortgage-payments",
+      "destination": "/blog/improve-retirement-no-monthly-mortgage-payments/",
+      "permanent": true
+    },
+    {
+      "source": "/thinking-about-a-reverse-mortgage",
+      "destination": "/blog/thinking-about-a-reverse-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/seniors-can-be-helped-by-reverse-mortgages",
+      "destination": "/blog/seniors-helped-by-reverse-mortgages/",
+      "permanent": true
+    },
+    {
+      "source": "/what-happens-to-your-social-security-when-you-lose-a-spouse",
+      "destination": "/blog/social-security-when-you-lose-a-spouse/",
+      "permanent": true
+    },
+    {
+      "source": "/which-homeowners-insurance-is-the-cheapest",
+      "destination": "/blog/cheapest-homeowners-insurance/",
+      "permanent": true
+    },
+    {
+      "source": "/closing-homebuyers",
+      "destination": "/blog/what-to-expect-at-closing/",
+      "permanent": true
+    },
+    {
+      "source": "/should-i-wait-to-buy-a-house-2",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-get-a-mortgage-in-2023-the-perfect-year-to-buy-a-home",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/why-are-housing-prices-in-florida-higher-in-2022",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/building-costs-forecasts",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/real-estate-values-in-2022",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/mortgage-rate-forecast",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/construction-costs-rising",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/frequently-asked-questions",
+      "destination": "/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/can-first-time-homebuyers-in-florida-get-help-with-down-payment-and-closing-costs",
+      "destination": "/first-time-buyer/",
+      "permanent": true
+    },
+    {
+      "source": "/are-fha-loans-a-good-option-for-first-time-homebuyers-in-florida",
+      "destination": "/fha-loans/",
+      "permanent": true
+    },
+    {
+      "source": "/what-is-an-fha-mortgage-and-who-is-it-best-suited-for-in-florida",
+      "destination": "/fha-loans/",
+      "permanent": true
+    },
+    {
+      "source": "/what-are-the-main-benefits-of-a-va-mortgage-compared-to-other-loan-types-in-florida",
+      "destination": "/va-loans/",
+      "permanent": true
+    },
+    {
+      "source": "/what-is-a-va-mortgage-and-who-qualifies-for-one-in-florida",
+      "destination": "/va-loans/",
+      "permanent": true
+    },
+    {
+      "source": "/what-happens-to-a-reverse-mortgage-when-the-homeowner-passes-away-or-moves-out-of-florida",
+      "destination": "/reverse-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/what-are-the-pros-and-cons-of-getting-a-reverse-mortgage-in-florida",
+      "destination": "/reverse-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/what-are-the-eligibility-requirements-for-a-reverse-mortgage-in-florida",
+      "destination": "/reverse-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/what-costs-are-involved-in-getting-a-reverse-mortgage-in-florida",
+      "destination": "/reverse-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/do-i-still-own-my-home-if-i-take-out-a-reverse-mortgage-in-florida",
+      "destination": "/reverse-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/what-is-a-reverse-mortgage-and-how-does-it-work-for-florida-homeowners",
+      "destination": "/reverse-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/who-does-a-mortgage-broker-work-for-and-what-do-you-charge",
+      "destination": "/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/which-type-mortgage-loan-am-i-eligible-for",
+      "destination": "/loan-programs/",
+      "permanent": true
+    },
+    {
+      "source": "/if-i-do-a-reverse-mortgage-do-i-no-longer-own-my-home",
+      "destination": "/reverse-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/home-equity-in-tirnity-florida",
+      "destination": "/trinity-home-equity/",
+      "permanent": true
+    },
+    {
+      "source": "/fha-loan-in-tarpon-springs",
+      "destination": "/tarpon-springs-fha/",
+      "permanent": true
+    },
+    {
+      "source": "/port-richey-fl-va-loan",
+      "destination": "/port-richey-va-loans/",
+      "permanent": true
+    },
+    {
+      "source": "/reverse-mortgage-quiz",
+      "destination": "/tools/reverse-mortgage-quiz/",
+      "permanent": true
+    },
+    {
+      "source": "/file-a-loan-application",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/online-resources",
+      "destination": "/resources/",
+      "permanent": true
+    },
+    {
+      "source": "/business-hours",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/mortgage-financing",
+      "destination": "/loan-programs/",
+      "permanent": true
+    },
+    {
+      "source": "/debbie-cooley-guy",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/debbie-cooley-mortgage-privacy-policy",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/opt-out-preferences",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/carol-s",
+      "destination": "/reviews/",
+      "permanent": true
+    },
+    {
+      "source": "/frank-b",
+      "destination": "/reviews/",
+      "permanent": true
+    },
+    {
+      "source": "/loris-testimonial-2",
+      "destination": "/reviews/",
+      "permanent": true
+    },
+    {
+      "source": "/merlin-s",
+      "destination": "/reviews/",
+      "permanent": true
+    },
+    {
+      "source": "/first-time-homebuyer-loans",
+      "destination": "/first-time-buyer/",
+      "permanent": true
+    },
+    {
+      "source": "/conventional-loans",
+      "destination": "/conventional-loans/",
+      "permanent": true
+    },
+    {
+      "source": "/fha-loans",
+      "destination": "/fha-loans/",
+      "permanent": true
+    },
+    {
+      "source": "/va-loans",
+      "destination": "/va-loans/",
+      "permanent": true
+    },
+    {
+      "source": "/reverse-mortgage",
+      "destination": "/reverse-mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/areas-served",
+      "destination": "/areas-served/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq/",
+      "permanent": true
+    }
+  ]
+}
