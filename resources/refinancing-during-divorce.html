@@ -127,6 +127,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 .add-row:hover { background: var(--teal-light); }
 
+/* Thought-prompt cards (helps the user think instead of facing a blank list) */
+.prompt-list { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; }
+.prompt-card {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.2s;
+}
+.prompt-card:hover { border-color: var(--teal); background: var(--teal-light); }
+.prompt-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: var(--teal);
+}
+.prompt-icon svg { width: 22px; height: 22px; }
+.prompt-content { min-width: 0; }
+.prompt-content strong { display: block; color: var(--charcoal); font-size: 0.98rem; line-height: 1.3; }
+.prompt-content span { display: block; color: var(--text-muted); font-size: 0.86rem; line-height: 1.4; margin-top: 2px; }
+.prompt-add {
+  background: transparent;
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+.prompt-add:hover { background: var(--teal); color: var(--white); }
+@media (max-width: 640px) {
+  .prompt-card { grid-template-columns: 36px 1fr; }
+  .prompt-add { grid-column: 1 / -1; width: 100%; }
+  .prompt-icon { width: 36px; height: 36px; }
+}
+
+/* Added-rows section header (only shows when there are rows) */
+.added-title {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin: 28px 0 12px;
+  display: none;
+}
+.added-title.show { display: block; }
+
+/* Pretty type label inside row-item */
+.row-item .row-type-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+
 .invent-skip { text-align: center; margin-top: 14px; }
 .invent-skip a { color: var(--text-muted); font-size: 0.88rem; text-decoration: underline; text-underline-offset: 2px; }
 
@@ -372,15 +441,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <section class="invent-step" data-step="3">
       <div class="invent-card">
         <span class="invent-step-label">Section 1 of 7 — Cash &amp; Bank Accounts</span>
-        <h2>Cash, checking, savings.</h2>
-        <p class="invent-help">List every account in your name, your spouse's name, or both. If you don't remember the exact balance, an estimate is fine.</p>
+        <h2>Let's think through your bank accounts.</h2>
+        <p class="invent-help">Take it one at a time. Skip what doesn't apply. There's no rush, and no exact balances required — estimates are fine.</p>
         <div class="invent-reassure">
-          You don't need account numbers — just the bank, type of account, and a rough balance. We're building a picture, not a precise statement.
+          We'll prompt you with the most common types. Click <strong>"Yes, I have one"</strong> on any that apply. If you have two of the same type (e.g., two checking accounts at different banks), just click again.
         </div>
 
+        <div class="prompt-list">
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+            <div class="prompt-content"><strong>Checking account</strong><span>The everyday account where your paycheck lands and bills are paid.</span></div>
+            <button type="button" class="prompt-add" onclick="addCash('Checking')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><line x1="12" y1="13" x2="12" y2="13"/></svg></div>
+            <div class="prompt-content"><strong>Savings account</strong><span>Money set aside for emergencies, taxes, or short-term goals.</span></div>
+            <button type="button" class="prompt-add" onclick="addCash('Savings')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><circle cx="20" cy="8" r="2"/></svg></div>
+            <div class="prompt-content"><strong>Joint account with spouse</strong><span>Any account that lists both of you as owners.</span></div>
+            <button type="button" class="prompt-add" onclick="addCash('Joint Account')">+ Yes, we have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="prompt-content"><strong>Money market or CD</strong><span>Higher-interest "locked-up" savings — sometimes called money market accounts or certificates of deposit.</span></div>
+            <button type="button" class="prompt-add" onclick="addCash('Money Market or CD')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/></svg></div>
+            <div class="prompt-content"><strong>Vacation, holiday, or "Christmas club" fund</strong><span>Some banks have these as separate sub-accounts that auto-save throughout the year.</span></div>
+            <button type="button" class="prompt-add" onclick="addCash('Vacation/Holiday Fund')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div class="prompt-content"><strong>Cash app, Venmo, or PayPal balance</strong><span>Money sitting in a payment app — easy to forget, but it counts.</span></div>
+            <button type="button" class="prompt-add" onclick="addCash('Payment App Balance')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="prompt-content"><strong>Anything else cash-like</strong><span>An old account at another bank, a foreign account, traveler's checks, or just unsure where to put it.</span></div>
+            <button type="button" class="prompt-add" onclick="addCash('Other')">+ Yes, add it</button>
+          </div>
+        </div>
+
+        <h3 class="added-title" id="cashAddedTitle">What you've added</h3>
         <div class="row-list" id="cashList"></div>
-        <button type="button" class="add-row" onclick="addCash()">+ Add a bank account</button>
-        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">Skip this section — none apply</a></p>
+
+        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">None of these apply — skip this section</a></p>
 
         <div class="invent-nav">
           <button type="button" class="btn btn-back" onclick="prevStep()">← Back</button>
@@ -393,15 +501,64 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <section class="invent-step" data-step="4">
       <div class="invent-card">
         <span class="invent-step-label">Section 2 of 7 — Investment &amp; Retirement</span>
-        <h2>Brokerage, IRAs, 401(k)s, pensions.</h2>
-        <p class="invent-help">Anywhere your money is invested for the future. Include accounts that are only in your spouse's name too — those are still part of the marital picture.</p>
+        <h2>Now let's think about long-term money.</h2>
+        <p class="invent-help">Anywhere money is invested for the future — yours, your spouse's, or both. <strong>Include your spouse's accounts even if you don't have access to statements</strong> — they're still part of the marital picture.</p>
         <div class="invent-reassure">
-          <strong>Don't worry about exact balances</strong> — recent statements are helpful but estimates work fine for now. Your attorney will get formal statements during discovery.
+          We'll go through the most common types. <strong>Estimates are fine.</strong> Your attorney will request formal statements during discovery — this is just to get a starting picture.
         </div>
 
+        <div class="prompt-list">
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V8l8-5 8 5v13"/><path d="M9 21V12h6v9"/><circle cx="12" cy="9" r="1"/></svg></div>
+            <div class="prompt-content"><strong>401(k) or 403(b) through work</strong><span>Retirement plan offered by an employer. Most common American retirement account.</span></div>
+            <button type="button" class="prompt-add" onclick="addInvest('401(k)')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v12"/><path d="M9 9h4.5a2.5 2.5 0 0 1 0 5H9"/></svg></div>
+            <div class="prompt-content"><strong>Traditional or Roth IRA</strong><span>An individual retirement account (you opened it yourself, not through work).</span></div>
+            <button type="button" class="prompt-add" onclick="addInvest('IRA')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <div class="prompt-content"><strong>Brokerage / taxable investment account</strong><span>An account where you buy stocks, ETFs, or mutual funds (Fidelity, Schwab, Robinhood, etc.) — not specifically for retirement.</span></div>
+            <button type="button" class="prompt-add" onclick="addInvest('Brokerage / Taxable')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89l1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/></svg></div>
+            <div class="prompt-content"><strong>Pension</strong><span>A guaranteed monthly payment from a former or current employer when you retire — common for teachers, government workers, and longtime employees of larger companies.</span></div>
+            <button type="button" class="prompt-add" onclick="addInvest('Pension')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="prompt-content"><strong>HSA — Health Savings Account</strong><span>A tax-advantaged medical-expense savings account, often offered with high-deductible health plans.</span></div>
+            <button type="button" class="prompt-add" onclick="addInvest('HSA')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg></div>
+            <div class="prompt-content"><strong>529 College savings plan</strong><span>A tax-advantaged plan for a child's education — Florida Prepaid is a common one. Whose name is it in matters here.</span></div>
+            <button type="button" class="prompt-add" onclick="addInvest('529 College Savings')">+ Yes, we have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <div class="prompt-content"><strong>Crypto wallet or exchange balance</strong><span>Bitcoin, Ethereum, or other crypto held on Coinbase, Robinhood, a hardware wallet, etc.</span></div>
+            <button type="button" class="prompt-add" onclick="addInvest('Crypto')">+ Yes, I have some</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-7h3z"/><path d="M3 19a2 2 0 0 0 2 2h1v-7H3z"/></svg></div>
+            <div class="prompt-content"><strong>Annuity</strong><span>An insurance product that pays out income over time — sometimes called a "fixed annuity" or "variable annuity."</span></div>
+            <button type="button" class="prompt-add" onclick="addInvest('Annuity')">+ Yes, I have one</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="prompt-content"><strong>Anything else investment-like</strong><span>An old retirement account from a previous job, restricted stock units (RSUs), employee stock purchase plan (ESPP), or anything you're not sure about.</span></div>
+            <button type="button" class="prompt-add" onclick="addInvest('Other')">+ Yes, add it</button>
+          </div>
+        </div>
+
+        <h3 class="added-title" id="investAddedTitle">What you've added</h3>
         <div class="row-list" id="investList"></div>
-        <button type="button" class="add-row" onclick="addInvest()">+ Add an investment or retirement account</button>
-        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">Skip this section — none apply</a></p>
+
+        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">None of these apply — skip this section</a></p>
 
         <div class="invent-nav">
           <button type="button" class="btn btn-back" onclick="prevStep()">← Back</button>
@@ -414,15 +571,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <section class="invent-step" data-step="5">
       <div class="invent-card">
         <span class="invent-step-label">Section 3 of 7 — Real Estate</span>
-        <h2>Homes, rentals, land.</h2>
-        <p class="invent-help">Your primary home, any rental properties, vacation homes, or land you own. Include the estimated current value <em>and</em> the remaining mortgage balance — both matter for refinance and equity decisions.</p>
+        <h2>Homes, rentals, land — anything you own.</h2>
+        <p class="invent-help">For each property, you'll add the estimated current value <em>and</em> the remaining mortgage balance. Both numbers matter for refinance decisions.</p>
         <div class="invent-reassure">
-          <strong>Refinancing the marital home is one of the most common questions in a divorce.</strong> Knowing the current value and balance is the starting point for figuring out who keeps the house, who buys the other out, and at what price.
+          <strong>Refinancing the marital home is one of the most common questions in a divorce.</strong> Don't worry about exact figures — Zillow estimates and your most recent statement are perfect starting points.
         </div>
 
+        <div class="prompt-list">
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="prompt-content"><strong>Primary residence</strong><span>The home you currently live in. The most common refinance topic in a divorce.</span></div>
+            <button type="button" class="prompt-add" onclick="addRealEstate('Primary Residence')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 9h.01M9 12h.01M9 15h.01M9 18h.01M13 9h.01M13 12h.01M13 15h.01M13 18h.01M17 9h.01M17 12h.01M17 15h.01M17 18h.01"/></svg></div>
+            <div class="prompt-content"><strong>Rental property</strong><span>A house, condo, or duplex rented to tenants — single-family or multi-family.</span></div>
+            <button type="button" class="prompt-add" onclick="addRealEstate('Rental Property')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 22a8 8 0 0 1 8-8h4a8 8 0 0 1 8 8"/><circle cx="12" cy="8" r="6"/></svg></div>
+            <div class="prompt-content"><strong>Vacation home or second residence</strong><span>A beach house, mountain cabin, condo at a resort — anywhere you stay part-time.</span></div>
+            <button type="button" class="prompt-add" onclick="addRealEstate('Vacation Home')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 22h20"/><path d="M5 22V12l7-7 7 7v10"/><path d="M9 22v-6h6v6"/></svg></div>
+            <div class="prompt-content"><strong>Vacant land or lot</strong><span>An empty lot, raw land, or property under construction.</span></div>
+            <button type="button" class="prompt-add" onclick="addRealEstate('Land')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <div class="prompt-content"><strong>Commercial or business property</strong><span>An office, storefront, warehouse, or other building used for a business.</span></div>
+            <button type="button" class="prompt-add" onclick="addRealEstate('Commercial')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="prompt-content"><strong>Anything else real-estate-like</strong><span>Timeshare, partial ownership, family property, or anything you're not sure about.</span></div>
+            <button type="button" class="prompt-add" onclick="addRealEstate('Other')">+ Yes, add it</button>
+          </div>
+        </div>
+
+        <h3 class="added-title" id="realEstateAddedTitle">What you've added</h3>
         <div class="row-list" id="realEstateList"></div>
-        <button type="button" class="add-row" onclick="addRealEstate()">+ Add a property</button>
-        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">Skip this section — none apply</a></p>
+
+        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">None of these apply — skip this section</a></p>
 
         <div class="invent-nav">
           <button type="button" class="btn btn-back" onclick="prevStep()">← Back</button>
@@ -434,21 +625,83 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- ========== STEP 6: Vehicles + Other Assets ========== -->
     <section class="invent-step" data-step="6">
       <div class="invent-card">
-        <span class="invent-step-label">Section 4 of 7 — Vehicles &amp; Other Assets</span>
-        <h2>Cars, boats, valuable items.</h2>
-        <p class="invent-help">Vehicles, RVs, boats, motorcycles. Plus anything else of significant value — a small business, art, jewelry, collectibles, lawsuit settlements, life insurance cash value.</p>
+        <span class="invent-step-label">Section 4 of 7 — Vehicles &amp; Valuable Items</span>
+        <h2>Cars, boats, and anything else of value.</h2>
+        <p class="invent-help">We'll go through vehicles first, then other valuable items. Skip what doesn't apply.</p>
         <div class="invent-reassure">
-          Be honest with yourself. Even items you don't think of as "money" — a paid-off boat, an inherited piece of jewelry, a side business — can be part of the conversation.
+          Even things you don't usually think of as "money" — a paid-off boat, an inherited piece of jewelry, a side business — can be part of the divorce conversation. <strong>It's better to remember now than to be surprised later.</strong>
         </div>
 
-        <h3 style="font-family: var(--font-sans); font-size: 1.05rem; margin: 24px 0 8px; color: var(--charcoal);">Vehicles</h3>
-        <div class="row-list" id="vehicleList"></div>
-        <button type="button" class="add-row" onclick="addVehicle()">+ Add a vehicle</button>
+        <h3 style="font-family: var(--font-sans); font-size: 1.05rem; margin: 24px 0 12px; color: var(--charcoal);">Vehicles</h3>
+        <div class="prompt-list">
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
+            <div class="prompt-content"><strong>Car, truck, or SUV</strong><span>Daily drivers — yours, your spouse's, or a teen driver in the family.</span></div>
+            <button type="button" class="prompt-add" onclick="addVehicle('Car / Truck / SUV')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2"/></svg></div>
+            <div class="prompt-content"><strong>Motorcycle, ATV, or scooter</strong><span>Anything two- or three-wheeled — registered or otherwise.</span></div>
+            <button type="button" class="prompt-add" onclick="addVehicle('Motorcycle / ATV')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2c1.3 0 1.9.5 2.5 1"/><path d="M3 18a3 3 0 0 0 3-3V8h12v7a3 3 0 0 0 3 3"/><path d="M3 8h18"/></svg></div>
+            <div class="prompt-content"><strong>Boat or jet ski</strong><span>Florida classic — fishing boats, sailboats, jet skis, pontoons. Don't forget the trailer.</span></div>
+            <button type="button" class="prompt-add" onclick="addVehicle('Boat / Watercraft')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="9" width="20" height="9" rx="2"/><circle cx="7" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M7 9V5h10v4"/></svg></div>
+            <div class="prompt-content"><strong>RV, camper, or travel trailer</strong><span>Class A/B/C motorhomes, fifth wheels, pop-ups.</span></div>
+            <button type="button" class="prompt-add" onclick="addVehicle('RV / Camper')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="prompt-content"><strong>Anything else with a title</strong><span>Classic car, golf cart, trailer, plane — anything titled or worth more than $1,000.</span></div>
+            <button type="button" class="prompt-add" onclick="addVehicle('Other Vehicle')">+ Yes, add it</button>
+          </div>
+        </div>
 
-        <h3 style="font-family: var(--font-sans); font-size: 1.05rem; margin: 32px 0 8px; color: var(--charcoal);">Other Valuable Assets</h3>
+        <h3 class="added-title" id="vehicleAddedTitle">Vehicles you've added</h3>
+        <div class="row-list" id="vehicleList"></div>
+
+        <h3 style="font-family: var(--font-sans); font-size: 1.05rem; margin: 32px 0 12px; color: var(--charcoal);">Other valuable items</h3>
+        <div class="prompt-list">
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V7l4-4h6l4 4v14"/><path d="M9 9h6M9 13h6M9 17h6"/></svg></div>
+            <div class="prompt-content"><strong>Small business or self-employment</strong><span>An LLC, sole proprietorship, partnership, or any business you (or your spouse) own all or part of.</span></div>
+            <button type="button" class="prompt-add" onclick="addOtherAsset('Business / Self-Employment')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></div>
+            <div class="prompt-content"><strong>Jewelry, watches, or precious metals</strong><span>Engagement and wedding rings, family heirlooms, gold or silver coins. <em>Pre-marriage gifts may be considered separate property — flag for your attorney.</em></span></div>
+            <button type="button" class="prompt-add" onclick="addOtherAsset('Jewelry / Precious Metals')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 22a8.96 8.96 0 0 0 7-3.32V14a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v4.68A8.96 8.96 0 0 0 12 22z"/></svg></div>
+            <div class="prompt-content"><strong>Art, antiques, or collectibles</strong><span>Paintings, sculptures, vintage furniture, sports memorabilia, comic books, vinyl records — anything collected over time.</span></div>
+            <button type="button" class="prompt-add" onclick="addOtherAsset('Art / Antiques / Collectibles')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <div class="prompt-content"><strong>Whole-life or universal-life insurance cash value</strong><span>Life insurance you've been paying for years that has built up cash value (not term life — term doesn't have any).</span></div>
+            <button type="button" class="prompt-add" onclick="addOtherAsset('Life Insurance Cash Value')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="prompt-content"><strong>Pending lawsuit, settlement, or inheritance</strong><span>Any money expected from a lawsuit, accident settlement, will, or trust — even if it hasn't paid out yet.</span></div>
+            <button type="button" class="prompt-add" onclick="addOtherAsset('Lawsuit / Settlement / Inheritance')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="prompt-content"><strong>Anything else of significant value</strong><span>Anything worth a few thousand dollars or more that doesn't fit above.</span></div>
+            <button type="button" class="prompt-add" onclick="addOtherAsset('Other')">+ Yes, add it</button>
+          </div>
+        </div>
+
+        <h3 class="added-title" id="otherAssetAddedTitle">Other items you've added</h3>
         <div class="row-list" id="otherAssetList"></div>
-        <button type="button" class="add-row" onclick="addOtherAsset()">+ Add another asset</button>
-        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">Skip this section — none apply</a></p>
+
+        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">None of these apply — skip this section</a></p>
 
         <div class="invent-nav">
           <button type="button" class="btn btn-back" onclick="prevStep()">← Back</button>
@@ -461,15 +714,69 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <section class="invent-step" data-step="7">
       <div class="invent-card">
         <span class="invent-step-label">Section 5 of 7 — Debts &amp; Liabilities</span>
-        <h2>What you owe.</h2>
-        <p class="invent-help">Credit cards, auto loans, student loans, medical bills, personal loans, IRS debt, business debt — anything beyond the mortgages you listed in real estate.</p>
+        <h2>Now let's think about what's owed.</h2>
+        <p class="invent-help">Anything beyond the mortgages you already listed under Real Estate. We'll go through the most common types.</p>
         <div class="invent-reassure">
-          <strong>Debts are part of the math too.</strong> A clear picture protects you — joint debts often follow both names regardless of the divorce decree, until they're paid or refinanced.
+          <strong>This is the part most people dread, but it's important.</strong> Joint debts often follow both names regardless of what the divorce decree says — until they're paid off or refinanced. Knowing what's there is how you protect yourself.
         </div>
 
+        <div class="prompt-list">
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+            <div class="prompt-content"><strong>Credit card balance</strong><span>Visa, Mastercard, Amex, store cards, gas cards. Add one per card with a balance.</span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('Credit Card')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
+            <div class="prompt-content"><strong>Auto loan</strong><span>A loan against a vehicle you're paying off — separate from the vehicle's value, which you entered earlier.</span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('Auto Loan')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg></div>
+            <div class="prompt-content"><strong>Student loan</strong><span>Federal or private — yours or your spouse's. <em>Loans taken out before the marriage may be separate property — flag for your attorney.</em></span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('Student Loan')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="9" y1="10" x2="15" y2="10"/></svg></div>
+            <div class="prompt-content"><strong>Medical or dental debt</strong><span>Outstanding hospital bills, surgery costs, dental work, fertility treatments — even if it's already in collections.</span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('Medical / Dental Debt')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
+            <div class="prompt-content"><strong>Personal loan or signature loan</strong><span>An unsecured loan from a bank, credit union, or online lender (SoFi, LightStream, etc.) — not tied to a specific asset.</span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('Personal Loan')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><line x1="8" y1="14" x2="16" y2="14"/></svg></div>
+            <div class="prompt-content"><strong>HELOC or second mortgage</strong><span>A home-equity line of credit or second mortgage taken against the marital home — sometimes overlooked because it's "tied to the house."</span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('HELOC / Second Mortgage')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 22h20"/><path d="M5 22V8l7-6 7 6v14"/><path d="M9 22v-9h6v9"/></svg></div>
+            <div class="prompt-content"><strong>IRS or state tax debt</strong><span>Back taxes owed, payment plans with the IRS or Florida — joint filings make these joint debts in most cases.</span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('IRS / Tax Debt')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+            <div class="prompt-content"><strong>Money owed to family or friends</strong><span>Loans from parents, in-laws, or friends — even informal "we'll pay you back someday" arrangements.</span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('Family / Friend Loan')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V7l4-4h6l4 4v14"/><path d="M9 9h6M9 13h6M9 17h6"/></svg></div>
+            <div class="prompt-content"><strong>Business debt</strong><span>Loans, lines of credit, or unpaid vendor invoices owed by a business you (or your spouse) own.</span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('Business Debt')">+ Yes, add it</button>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="prompt-content"><strong>Anything else owed</strong><span>Past-due rent, child support arrears, court judgments, "buy now pay later" balances — anything you're being asked to repay.</span></div>
+            <button type="button" class="prompt-add" onclick="addDebt('Other Debt')">+ Yes, add it</button>
+          </div>
+        </div>
+
+        <h3 class="added-title" id="debtAddedTitle">Debts you've added</h3>
         <div class="row-list" id="debtList"></div>
-        <button type="button" class="add-row" onclick="addDebt()">+ Add a debt</button>
-        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">Skip this section — none apply</a></p>
+
+        <p class="invent-skip"><a href="#" onclick="event.preventDefault(); nextStep();">None of these apply — skip this section</a></p>
 
         <div class="invent-nav">
           <button type="button" class="btn btn-back" onclick="prevStep()">← Back</button>
@@ -744,39 +1051,72 @@ function makeRow(html) {
   return div;
 }
 
-function addCash() {
+function showAdded(titleId, listId) {
+  const t = document.getElementById(titleId);
+  if (t) t.classList.add('show');
+  // Scroll the new row into view smoothly
+  setTimeout(() => {
+    const list = document.getElementById(listId);
+    if (list && list.lastChild) list.lastChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 50);
+}
+
+function addCash(presetType) {
   cashCount++;
   const i = cashCount;
   const html = `
     <span class="row-num">${i}</span>
+    ${presetType ? `<div class="row-type-label">${presetType}</div>` : ''}
     <div class="row-grid">
       <div class="form-group"><label>Bank or institution</label><input type="text" name="cash_bank_${i}" placeholder="e.g., Bank of America"></div>
       <div class="form-group"><label>Account type</label>
-        <select name="cash_type_${i}"><option value="">Select…</option><option>Checking</option><option>Savings</option><option>Money Market</option><option>CD</option><option>Other</option></select>
+        <input type="hidden" name="cash_type_${i}" value="${presetType || ''}">
+        <select onchange="this.previousElementSibling.value = this.value">
+          <option value="">Select…</option>
+          <option ${presetType==='Checking'?'selected':''}>Checking</option>
+          <option ${presetType==='Savings'?'selected':''}>Savings</option>
+          <option ${presetType==='Joint Account'?'selected':''}>Joint Account</option>
+          <option ${presetType==='Money Market or CD'?'selected':''}>Money Market or CD</option>
+          <option ${presetType==='Vacation/Holiday Fund'?'selected':''}>Vacation/Holiday Fund</option>
+          <option ${presetType==='Payment App Balance'?'selected':''}>Payment App Balance</option>
+          <option ${presetType==='Other'?'selected':''}>Other</option>
+        </select>
       </div>
       <div class="form-group"><label>Approximate balance</label><input type="text" name="cash_balance_${i}" placeholder="$0" inputmode="decimal"></div>
       <div class="form-group"><label>Whose name?</label>
-        <select name="cash_owner_${i}"><option value="">Select…</option><option>You</option><option>Spouse</option><option>Joint</option></select>
+        <select name="cash_owner_${i}"><option value="">Select…</option><option>You</option><option>Spouse</option><option ${presetType==='Joint Account'?'selected':''}>Joint</option></select>
       </div>
     </div>
     <button type="button" class="row-remove" onclick="this.parentElement.remove()">Remove this account</button>
   `;
   document.getElementById('cashList').appendChild(makeRow(html));
+  showAdded('cashAddedTitle', 'cashList');
 }
 
-function addInvest() {
+function addInvest(presetType) {
   investCount++;
   const i = investCount;
   const html = `
     <span class="row-num">${i}</span>
+    ${presetType ? `<div class="row-type-label">${presetType}</div>` : ''}
     <div class="row-grid">
-      <div class="form-group"><label>Institution</label><input type="text" name="invest_institution_${i}" placeholder="e.g., Fidelity, Vanguard"></div>
+      <div class="form-group"><label>Institution</label><input type="text" name="invest_institution_${i}" placeholder="e.g., Fidelity, Vanguard, employer"></div>
       <div class="form-group"><label>Account type</label>
-        <select name="invest_type_${i}">
+        <input type="hidden" name="invest_type_${i}" value="${presetType || ''}">
+        <select onchange="this.previousElementSibling.value = this.value">
           <option value="">Select…</option>
-          <option>401(k)</option><option>403(b)</option><option>Traditional IRA</option><option>Roth IRA</option>
-          <option>SEP IRA / Solo 401(k)</option><option>Pension</option><option>Brokerage / Taxable</option>
-          <option>HSA</option><option>529 College Savings</option><option>Annuity</option><option>Other</option>
+          <option ${presetType==='401(k)'?'selected':''}>401(k)</option>
+          <option ${presetType==='403(b)'?'selected':''}>403(b)</option>
+          <option ${presetType==='IRA'?'selected':''}>Traditional IRA</option>
+          <option>Roth IRA</option>
+          <option>SEP IRA / Solo 401(k)</option>
+          <option ${presetType==='Pension'?'selected':''}>Pension</option>
+          <option ${presetType==='Brokerage / Taxable'?'selected':''}>Brokerage / Taxable</option>
+          <option ${presetType==='HSA'?'selected':''}>HSA</option>
+          <option ${presetType==='529 College Savings'?'selected':''}>529 College Savings</option>
+          <option ${presetType==='Crypto'?'selected':''}>Crypto</option>
+          <option ${presetType==='Annuity'?'selected':''}>Annuity</option>
+          <option ${presetType==='Other'?'selected':''}>Other</option>
         </select>
       </div>
       <div class="form-group"><label>Approximate balance</label><input type="text" name="invest_balance_${i}" placeholder="$0" inputmode="decimal"></div>
@@ -787,17 +1127,28 @@ function addInvest() {
     <button type="button" class="row-remove" onclick="this.parentElement.remove()">Remove this account</button>
   `;
   document.getElementById('investList').appendChild(makeRow(html));
+  showAdded('investAddedTitle', 'investList');
 }
 
-function addRealEstate() {
+function addRealEstate(presetType) {
   realEstateCount++;
   const i = realEstateCount;
   const html = `
     <span class="row-num">${i}</span>
+    ${presetType ? `<div class="row-type-label">${presetType}</div>` : ''}
     <div class="form-group"><label>Property address (city/zip is fine)</label><input type="text" name="re_addr_${i}" placeholder="e.g., New Port Richey, FL 34655"></div>
     <div class="row-grid-3">
       <div class="form-group"><label>Property type</label>
-        <select name="re_type_${i}"><option value="">Select…</option><option>Primary Residence</option><option>Rental Property</option><option>Vacation Home</option><option>Land</option><option>Commercial</option></select>
+        <input type="hidden" name="re_type_${i}" value="${presetType || ''}">
+        <select onchange="this.previousElementSibling.value = this.value">
+          <option value="">Select…</option>
+          <option ${presetType==='Primary Residence'?'selected':''}>Primary Residence</option>
+          <option ${presetType==='Rental Property'?'selected':''}>Rental Property</option>
+          <option ${presetType==='Vacation Home'?'selected':''}>Vacation Home</option>
+          <option ${presetType==='Land'?'selected':''}>Land</option>
+          <option ${presetType==='Commercial'?'selected':''}>Commercial</option>
+          <option ${presetType==='Other'?'selected':''}>Other</option>
+        </select>
       </div>
       <div class="form-group"><label>Estimated current value</label><input type="text" name="re_value_${i}" placeholder="$0" inputmode="decimal"></div>
       <div class="form-group"><label>Mortgage balance</label><input type="text" name="re_mortgage_${i}" placeholder="$0" inputmode="decimal"></div>
@@ -808,13 +1159,16 @@ function addRealEstate() {
     <button type="button" class="row-remove" onclick="this.parentElement.remove()">Remove this property</button>
   `;
   document.getElementById('realEstateList').appendChild(makeRow(html));
+  showAdded('realEstateAddedTitle', 'realEstateList');
 }
 
-function addVehicle() {
+function addVehicle(presetType) {
   vehicleCount++;
   const i = vehicleCount;
   const html = `
     <span class="row-num">${i}</span>
+    ${presetType ? `<div class="row-type-label">${presetType}</div>` : ''}
+    <input type="hidden" name="veh_type_${i}" value="${presetType || ''}">
     <div class="row-grid">
       <div class="form-group"><label>Year, make, model</label><input type="text" name="veh_desc_${i}" placeholder="e.g., 2020 Honda CR-V"></div>
       <div class="form-group"><label>Estimated value</label><input type="text" name="veh_value_${i}" placeholder="$0" inputmode="decimal"></div>
@@ -826,37 +1180,51 @@ function addVehicle() {
     <button type="button" class="row-remove" onclick="this.parentElement.remove()">Remove this vehicle</button>
   `;
   document.getElementById('vehicleList').appendChild(makeRow(html));
+  showAdded('vehicleAddedTitle', 'vehicleList');
 }
 
-function addOtherAsset() {
+function addOtherAsset(presetType) {
   otherAssetCount++;
   const i = otherAssetCount;
   const html = `
     <span class="row-num">${i}</span>
-    <div class="form-group"><label>What is it?</label><input type="text" name="other_desc_${i}" placeholder="e.g., small business, art collection, jewelry"></div>
+    ${presetType ? `<div class="row-type-label">${presetType}</div>` : ''}
+    <input type="hidden" name="other_type_${i}" value="${presetType || ''}">
+    <div class="form-group"><label>Description</label><input type="text" name="other_desc_${i}" placeholder="e.g., 'Etsy shop' or '2-carat diamond ring' or 'inherited Rolex'"></div>
     <div class="row-grid">
       <div class="form-group"><label>Estimated value</label><input type="text" name="other_value_${i}" placeholder="$0" inputmode="decimal"></div>
       <div class="form-group"><label>Whose name / ownership?</label>
         <select name="other_owner_${i}"><option value="">Select…</option><option>You</option><option>Spouse</option><option>Joint</option><option>Other</option></select>
       </div>
     </div>
-    <button type="button" class="row-remove" onclick="this.parentElement.remove()">Remove this asset</button>
+    <button type="button" class="row-remove" onclick="this.parentElement.remove()">Remove this item</button>
   `;
   document.getElementById('otherAssetList').appendChild(makeRow(html));
+  showAdded('otherAssetAddedTitle', 'otherAssetList');
 }
 
-function addDebt() {
+function addDebt(presetType) {
   debtCount++;
   const i = debtCount;
   const html = `
     <span class="row-num">${i}</span>
+    ${presetType ? `<div class="row-type-label">${presetType}</div>` : ''}
     <div class="row-grid">
       <div class="form-group"><label>Creditor</label><input type="text" name="debt_creditor_${i}" placeholder="e.g., Chase, Sallie Mae"></div>
       <div class="form-group"><label>Type of debt</label>
-        <select name="debt_type_${i}"><option value="">Select…</option>
-          <option>Credit Card</option><option>Auto Loan</option><option>Student Loan</option>
-          <option>Personal Loan</option><option>Medical Debt</option><option>HELOC / Home Equity</option>
-          <option>IRS / Tax Debt</option><option>Business Debt</option><option>Other</option>
+        <input type="hidden" name="debt_type_${i}" value="${presetType || ''}">
+        <select onchange="this.previousElementSibling.value = this.value">
+          <option value="">Select…</option>
+          <option ${presetType==='Credit Card'?'selected':''}>Credit Card</option>
+          <option ${presetType==='Auto Loan'?'selected':''}>Auto Loan</option>
+          <option ${presetType==='Student Loan'?'selected':''}>Student Loan</option>
+          <option ${presetType==='Medical / Dental Debt'?'selected':''}>Medical / Dental Debt</option>
+          <option ${presetType==='Personal Loan'?'selected':''}>Personal Loan</option>
+          <option ${presetType==='HELOC / Second Mortgage'?'selected':''}>HELOC / Second Mortgage</option>
+          <option ${presetType==='IRS / Tax Debt'?'selected':''}>IRS / Tax Debt</option>
+          <option ${presetType==='Family / Friend Loan'?'selected':''}>Family / Friend Loan</option>
+          <option ${presetType==='Business Debt'?'selected':''}>Business Debt</option>
+          <option ${presetType==='Other Debt'?'selected':''}>Other Debt</option>
         </select>
       </div>
       <div class="form-group"><label>Current balance</label><input type="text" name="debt_balance_${i}" placeholder="$0" inputmode="decimal"></div>
@@ -868,6 +1236,7 @@ function addDebt() {
     <button type="button" class="row-remove" onclick="this.parentElement.remove()">Remove this debt</button>
   `;
   document.getElementById('debtList').appendChild(makeRow(html));
+  showAdded('debtAddedTitle', 'debtList');
 }
 
 // =============================================
