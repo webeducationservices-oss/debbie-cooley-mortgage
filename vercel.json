@@ -391,41 +391,6 @@
       "source": "/first-time-homebuyer-loans/",
       "destination": "/first-time-buyer/",
       "permanent": true
-    },
-    {
-      "source": "/conventional-loans/",
-      "destination": "/conventional-loans/",
-      "permanent": true
-    },
-    {
-      "source": "/fha-loans/",
-      "destination": "/fha-loans/",
-      "permanent": true
-    },
-    {
-      "source": "/va-loans/",
-      "destination": "/va-loans/",
-      "permanent": true
-    },
-    {
-      "source": "/reverse-mortgage/",
-      "destination": "/reverse-mortgage/",
-      "permanent": true
-    },
-    {
-      "source": "/areas-served/",
-      "destination": "/areas-served/",
-      "permanent": true
-    },
-    {
-      "source": "/contact/",
-      "destination": "/contact/",
-      "permanent": true
-    },
-    {
-      "source": "/faq/",
-      "destination": "/faq/",
-      "permanent": true
     }
   ]
 }
