@@ -1,0 +1,18 @@
+name,type,ttl,value
+debbiecooleymortgage.com,NS,86400,ns6569.hostgator.com.
+debbiecooleymortgage.com,NS,86400,ns6570.hostgator.com.
+debbiecooleymortgage.com,SOA,86400,ns6569.hostgator.com. root.gator3285.hostgator.com. 2026041701 86400 7200 3600000 86400
+autodiscover.debbiecooleymortgage.com,A,14400,162.144.12.129
+debbiecooleymortgage.com,A,14400,162.144.12.129
+mail.debbiecooleymortgage.com,A,14400,162.144.12.129
+whm.debbiecooleymortgage.com,A,14400,162.144.12.129
+cpanel.debbiecooleymortgage.com,CNAME,14400,debbiecooleymortgage.com.
+ftp.debbiecooleymortgage.com,CNAME,14400,debbiecooleymortgage.com.
+webmail.debbiecooleymortgage.com,CNAME,14400,debbiecooleymortgage.com.
+www.debbiecooleymortgage.com,CNAME,14400,debbiecooleymortgage.com.
+debbiecooleymortgage.com,MX,14400,0 mail.debbiecooleymortgage.com.
+_acme-challenge.debbiecooleymortgage.com,TXT,14400,"""tR9yBEW-0QQmW6sVZUhHiaY6-aG9C4q0HPyjrN6cfQY"""
+_dmarc.debbiecooleymortgage.com,TXT,14400,"""v=DMARC1; p=none; rua=mailto:36c7933b@mxtoolbox.dmarc-report.com; ruf=mailto:36c7933b@forensics.dmarc-report.com; fo=1"""
+debbiecooleymortgage.com,TXT,14400,"""google-site-verification=gm6VWkXX6mm-o0rfnaHvUSBkGakZ3ahUtpWMjRnqGdY"""
+debbiecooleymortgage.com,TXT,14400,"""v=spf1 +a +mx +ip4:198.57.247.249 +include:websitewelcome.com ~all"""
+default._domainkey.debbiecooleymortgage.com,TXT,14400,"""v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArmLPKC7joYreGG5g41UZJn2CYeX+Wfzcz3ATfbQqK54BJcTPejw5suA4RBzHb0uDyVMZs5h80vEB84i2O5Huyk1CCp/bP9WjKW2xHlvv7WnkpYPnASbb5U885lFvcPitUihY5N5G7YZq19inCjucz1/qYDQESoRRClG2VbpD33GDs07UAUA4Tj0kEH7x41yfX"" ""rG/M4k0B4inEyqj6T6zR9l8THpmJ3B5LtevCTgfg7PT/DQQro+hTvDNG2IJL+uQF9UXsO31x1zd1NtToHkWmcFeKHrJSdW/pD8EdUphUiE0PTjh1H1LEptFFPyrEz4eaReRL0WbL4la38GjgagjIQIDAQAB;"""

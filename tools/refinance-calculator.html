@@ -104,7 +104,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="/resources/">Resources <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="dropdown">
             <div class="dd-section">Tools</div>
-            <a href="/tools/refinance-calculator/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="10" y2="11"/><line x1="13" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="13" y1="15" x2="16" y2="15"/><line x1="8" y1="19" x2="10" y2="19"/></svg></span><div><strong>Refinance Calculator</strong><span>See your break-even month</span></div></a>
+            <a href="/tools/payment-calculator/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="10" y2="11"/><line x1="13" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="13" y1="15" x2="16" y2="15"/><line x1="8" y1="19" x2="10" y2="19"/></svg></span><div><strong>Payment Calculator</strong><span>Slide-based mortgage estimator</span></div></a>
+            <a href="/tools/refinance-calculator/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span><div><strong>Refinance Calculator</strong><span>See your break-even month</span></div></a>
             <a href="/tools/reverse-mortgage-quiz/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div><strong>Reverse Mortgage Quiz</strong><span>Is it right for you? 10 questions</span></div></a>
             <a href="/resources/refinancing-during-divorce/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="14" x2="15" y2="14"/></svg></span><div><strong>Refinancing During Divorce</strong><span>Private financial inventory tool</span></div></a>
             <div class="dd-section">Free Guides</div>
@@ -166,6 +167,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <details>
       <summary>Resources</summary>
       <a href="/resources/">All Resources</a>
+      <a href="/tools/payment-calculator/">Payment Calculator</a>
       <a href="/tools/refinance-calculator/">Refinance Calculator</a>
       <a href="/tools/reverse-mortgage-quiz/">Reverse Mortgage Quiz</a>
       <a href="/resources/refinancing-during-divorce/">Refinancing During Divorce</a>
@@ -285,8 +287,87 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div id="refiLifetime" style="font-family:var(--font-serif); font-size:1.6rem; color:var(--teal-dark); font-weight:600">—</div>
           </div>
         </div>
-        <div style="text-align:center; margin-top: 24px;">
-          <a href="/contact/" class="btn btn-primary">Get a Real Refinance Quote →</a>
+        <!-- ── Lead-capture form (appears with calc result) ── -->
+        <div style="margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border);">
+          <div style="background: var(--cream); border-radius: var(--radius-lg); padding: 28px 28px 24px;">
+            <div style="display:flex; gap:14px; align-items:flex-start; margin-bottom:18px;">
+              <div style="width:48px; height:48px; border-radius:12px; background:var(--teal-light); color:var(--teal); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+              </div>
+              <div>
+                <h3 style="font-family:var(--font-serif); font-size:1.35rem; margin:0 0 4px; color:var(--charcoal); line-height:1.25;">Get this report + a real rate quote.</h3>
+                <p style="color:var(--charcoal-soft); margin:0; font-size:0.97rem; line-height:1.5;">We&rsquo;ll email you this calculation alongside a personalized refinance quote based on your actual credit and current loan. No high-pressure sales — just the numbers.</p>
+              </div>
+            </div>
+
+            <form action="https://myaieditor.com/api/form-notify" method="POST" data-ajax id="refiLeadForm">
+              <div class="form-fields">
+                <input type="hidden" name="site_slug" value="debbie-cooley-mortgage">
+                <input type="hidden" name="form_type" value="refinance-calculator-lead">
+                <input type="hidden" name="recaptcha_token" id="refi-recaptcha-token">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <!-- Calculator context (populated by JS each time calc runs) -->
+                <input type="hidden" name="calc_balance" id="ctx-balance">
+                <input type="hidden" name="calc_current_rate" id="ctx-current-rate">
+                <input type="hidden" name="calc_current_term" id="ctx-current-term">
+                <input type="hidden" name="calc_current_payment" id="ctx-current-payment">
+                <input type="hidden" name="calc_new_rate" id="ctx-new-rate">
+                <input type="hidden" name="calc_new_term" id="ctx-new-term">
+                <input type="hidden" name="calc_closing_costs" id="ctx-closing">
+                <input type="hidden" name="calc_cash_out" id="ctx-cash-out">
+                <input type="hidden" name="calc_break_even" id="ctx-breakeven">
+                <input type="hidden" name="calc_monthly_savings" id="ctx-monthly-savings">
+                <input type="hidden" name="calc_5yr_savings" id="ctx-5yr-savings">
+                <input type="hidden" name="calc_lifetime_savings" id="ctx-lifetime-savings">
+                <input type="hidden" name="calc_new_payment" id="ctx-new-payment">
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="rl-first">First Name *</label>
+                    <input type="text" id="rl-first" name="first_name" required autocomplete="given-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="rl-last">Last Name *</label>
+                    <input type="text" id="rl-last" name="last_name" required autocomplete="family-name">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="rl-email">Email *</label>
+                    <input type="email" id="rl-email" name="email" required autocomplete="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="rl-phone">Phone *</label>
+                    <input type="tel" id="rl-phone" name="phone" required autocomplete="tel" placeholder="(727) 555-0123">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="rl-timeline">How soon are you considering refinancing?</label>
+                  <select id="rl-timeline" name="timeline">
+                    <option value="">Select…</option>
+                    <option value="ASAP">As soon as possible</option>
+                    <option value="1-3 months">In the next 1–3 months</option>
+                    <option value="3-6 months">3–6 months from now</option>
+                    <option value="Just exploring">Just exploring options</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="rl-notes">Anything else Debbie should know? (optional)</label>
+                  <textarea id="rl-notes" name="notes" rows="3" placeholder="e.g., 'Looking to drop PMI', 'Considering cash-out for a kitchen remodel', 'My current loan is FHA and I want to switch to conventional'…"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Email me this report &amp; get a quote →</button>
+                <p class="form-consent">By submitting, you consent to receive communications from Debbie Cooley Mortgage about your inquiry. Message frequency varies; standard rates may apply. You may opt out at any time. This is not an application for credit or a commitment to lend.</p>
+              </div>
+              <div class="form-success">
+                <div class="success-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3>Got it — Debbie will be in touch.</h3>
+                <p>Your refinance report has been sent. Debbie personally reviews every inquiry and will reach out within one business day with a quote. For urgent questions:</p>
+                <a href="tel:7276882851" class="btn btn-primary" style="margin-top:8px">Call 727-688-2851</a>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -378,6 +459,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     document.getElementById('refiResult').style.display = 'block';
     document.getElementById('refiResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // ── Populate hidden lead-form context fields with calculator inputs+outputs ──
+    const ctx = {
+      'ctx-balance':         fmt.format(balance),
+      'ctx-current-rate':    curRate + '%',
+      'ctx-current-term':    curYrs + ' yrs',
+      'ctx-current-payment': fmt.format(curPmt),
+      'ctx-new-rate':        newRate + '%',
+      'ctx-new-term':        newYrs + ' yrs',
+      'ctx-closing':         fmt.format(closing),
+      'ctx-cash-out':        fmt.format(cashOut),
+      'ctx-breakeven':       (breakEven === null || breakEven > 480) ? 'Negative — no monthly savings' : (breakEven + ' months'),
+      'ctx-monthly-savings': monthlySavings > 0 ? fmt.format(monthlySavings) + '/mo' : 'Negative',
+      'ctx-5yr-savings':     monthlySavings > 0 ? fmt.format(monthlySavings * 60 - closing) : 'Negative',
+      'ctx-lifetime-savings': fmt.format(lifetimeSavings),
+      'ctx-new-payment':     fmt.format(newPmt),
+    };
+    Object.keys(ctx).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = ctx[id];
+    });
   }
 
   document.getElementById('refiCalcBtn').addEventListener('click', calc);

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mortgage Payment Calculator — Florida | Debbie Cooley Mortgage</title>
+<meta name="description" content="Free Florida mortgage payment calculator. Slide your way to a clear monthly number — principal, interest, taxes, insurance, PMI, and HOA all included. Get a personalized rate quote.">
+<link rel="canonical" href="https://debbiecooleymortgage.com/tools/payment-calculator/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mortgage Payment Calculator — Florida | Debbie Cooley Mortgage">
+<meta property="og:description" content="Free Florida mortgage payment calculator. Slide your way to a clear monthly number — principal, interest, taxes, insurance, PMI, and HOA all included. Get a personalized rate quote.">
+<meta property="og:image" content="https://debbiecooleymortgage.com/images/og-image.jpg">
+<meta property="og:url" content="https://debbiecooleymortgage.com/tools/payment-calculator/">
+<meta property="og:site_name" content="Debbie Cooley Mortgage">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<link rel="preload" as="font" type="font/woff2" href="/fonts/inter.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display.woff2" crossorigin>
+
+<link rel="stylesheet" href="/styles.css">
+
+<!-- Google Consent Mode v2 (defaults to denied for ads, granted for analytics) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M267MT4');</script>
+
+<!-- Google Analytics 4 (direct, in addition to GTM, since both are on the live site) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-98VMJ2223D"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-98VMJ2223D');
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh" async defer></script>
+<script src="/components.js" defer></script>
+
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M267MT4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+<header class="site-header">
+  <div class="header-top">
+    <div class="container">
+      <div class="header-top-left">
+        <a href="tel:7276882851" aria-label="Call Debbie">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-688-2851
+        </a>
+        <span style="opacity:.5">|</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mon–Fri 8am–6pm</span>
+      </div>
+      <div class="header-top-right">
+        <span>NMLS# 210817 &middot; IMS NMLS# 250769</span>
+      </div>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container">
+      <a href="/" class="brand" aria-label="Debbie Cooley Mortgage home">
+        <img src="/images/logo-monogram.webp" alt="Debbie Cooley Mortgage monogram" width="60" height="60">
+        <div class="brand-text">
+          <span class="brand-name">Debbie Cooley Mortgage</span>
+          <span class="brand-tag">Where a Broker Is Always Better</span>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <div class="nav-item">
+          <a href="/loan-programs/">Loan Programs <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <a href="/conventional-loans/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><div><strong>Conventional</strong><span>Traditional fixed &amp; adjustable financing</span></div></a>
+            <a href="/fha-loans/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><div><strong>FHA</strong><span>Lower credit thresholds, 3.5% down</span></div></a>
+            <a href="/va-loans/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><strong>VA</strong><span>Veterans &amp; active duty — $0 down</span></div></a>
+            <a href="/first-time-buyer/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><div><strong>First-Time Buyer</strong><span>Down payment assistance &amp; programs</span></div></a>
+            <a href="/reverse-mortgage/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></span><div><strong>Reverse Mortgage</strong><span>HECM &amp; proprietary, age 62+</span></div></a>
+            <a href="/refinance/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span><div><strong>Refinance &amp; HELOC</strong><span>Lower rate, cash out, equity access</span></div></a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="/resources/">Resources <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <div class="dd-section">Tools</div>
+            <a href="/tools/payment-calculator/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="10" y2="11"/><line x1="13" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="13" y1="15" x2="16" y2="15"/><line x1="8" y1="19" x2="10" y2="19"/></svg></span><div><strong>Payment Calculator</strong><span>Slide-based mortgage estimator</span></div></a>
+            <a href="/tools/refinance-calculator/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span><div><strong>Refinance Calculator</strong><span>See your break-even month</span></div></a>
+            <a href="/tools/reverse-mortgage-quiz/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div><strong>Reverse Mortgage Quiz</strong><span>Is it right for you? 10 questions</span></div></a>
+            <a href="/resources/refinancing-during-divorce/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="14" x2="15" y2="14"/></svg></span><div><strong>Refinancing During Divorce</strong><span>Private financial inventory tool</span></div></a>
+            <div class="dd-section">Free Guides</div>
+            <a href="/resources/first-time-homebuyer-roadmap/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span><div><strong>First-Time Buyer Roadmap</strong><span>Free 8-page PDF guide</span></div></a>
+            <a href="/resources/5-questions-to-ask-any-mortgage-broker/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div><strong>5 Questions to Ask Any Broker</strong><span>Free PDF — protect $400K+</span></div></a>
+            <div class="dropdown-divider"></div>
+            <a href="/blog/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><div><strong>Blog</strong><span>Mortgage insights &amp; market notes</span></div></a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="/areas-served/">Areas Served <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown dropdown-tight">
+            <a href="/areas-served/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><strong>All Service Areas</strong><span>Pasco, Pinellas &amp; Hillsborough</span></div></a>
+            <div class="dropdown-divider"></div>
+            <div class="dd-section">Pasco County</div>
+            <a href="/new-port-richey-reverse-mortgage/" class="dd-compact">New Port Richey · Reverse Mortgage</a>
+            <a href="/port-richey-va-loans/" class="dd-compact">Port Richey · VA Loans</a>
+            <a href="/wesley-chapel-loans/" class="dd-compact">Wesley Chapel</a>
+            <a href="/trinity-home-equity/" class="dd-compact">Trinity · Home Equity</a>
+            <div class="dd-section">Pinellas County</div>
+            <a href="/tarpon-springs-fha/" class="dd-compact">Tarpon Springs · FHA</a>
+            <a href="/clearwater-loans/" class="dd-compact">Clearwater</a>
+            <div class="dd-section">Hillsborough County</div>
+            <a href="/tampa-loans/" class="dd-compact">Tampa</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="/about/">About <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <a href="/about/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><div><strong>About Debbie</strong><span>40+ years &amp; the people behind the practice</span></div></a>
+            <a href="/reviews/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><div><strong>Client Reviews</strong><span>What clients say</span></div></a>
+            <a href="/faq/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div><strong>FAQ</strong><span>Common mortgage questions</span></div></a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/contact/" class="nav-cta">Talk to Debbie</a></div>
+      </nav>
+      <button class="mobile-toggle" aria-label="Open menu" id="menuOpen">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <button class="mobile-nav-close" aria-label="Close menu" id="menuClose">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <details>
+      <summary>Loan Programs</summary>
+      <a href="/loan-programs/">All Programs Overview</a>
+      <a href="/conventional-loans/">Conventional</a>
+      <a href="/fha-loans/">FHA</a>
+      <a href="/va-loans/">VA</a>
+      <a href="/first-time-buyer/">First-Time Buyer</a>
+      <a href="/reverse-mortgage/">Reverse Mortgage</a>
+      <a href="/refinance/">Refinance &amp; HELOC</a>
+    </details>
+    <details>
+      <summary>Resources</summary>
+      <a href="/resources/">All Resources</a>
+      <a href="/tools/payment-calculator/">Payment Calculator</a>
+      <a href="/tools/refinance-calculator/">Refinance Calculator</a>
+      <a href="/tools/reverse-mortgage-quiz/">Reverse Mortgage Quiz</a>
+      <a href="/resources/refinancing-during-divorce/">Refinancing During Divorce</a>
+      <a href="/resources/first-time-homebuyer-roadmap/">First-Time Buyer Roadmap</a>
+      <a href="/resources/5-questions-to-ask-any-mortgage-broker/">5 Questions to Ask Any Broker</a>
+      <a href="/blog/">Blog</a>
+    </details>
+    <details>
+      <summary>Areas Served</summary>
+      <a href="/areas-served/">All Service Areas</a>
+      <a href="/new-port-richey-reverse-mortgage/">New Port Richey · Reverse</a>
+      <a href="/port-richey-va-loans/">Port Richey · VA</a>
+      <a href="/wesley-chapel-loans/">Wesley Chapel</a>
+      <a href="/trinity-home-equity/">Trinity · Home Equity</a>
+      <a href="/tarpon-springs-fha/">Tarpon Springs · FHA</a>
+      <a href="/clearwater-loans/">Clearwater</a>
+      <a href="/tampa-loans/">Tampa</a>
+    </details>
+    <details>
+      <summary>About</summary>
+      <a href="/about/">About Debbie</a>
+      <a href="/reviews/">Client Reviews</a>
+      <a href="/faq/">FAQ</a>
+    </details>
+    <a href="tel:7276882851">Call 727-688-2851</a>
+    <a href="/contact/" class="cta">Talk to Debbie</a>
+  </div>
+</div>
+<main id="main">
+<section class="page-hero page-hero-split">
+  <div class="container">
+    <div class="breadcrumbs"><a href="/">Home</a> <span class="sep">›</span> <a href="/resources/">Resources</a> <span class="sep">›</span> <span>Payment Calculator</span></div>
+    <div class="hero-split-grid">
+      <div class="hero-split-content">
+        <h1>Mortgage Payment Calculator.</h1>
+        <p class="lead">Slide your way to a clear monthly number — principal, interest, taxes, insurance, PMI, and HOA all included. Adjust home price, down payment, rate, and term to see what fits your budget.</p>
+        <div class="hero-split-cta"><a href="#calc-main" class="btn btn-primary btn-lg">Run the calculator ↓</a><a href="/contact/" class="btn btn-outline btn-lg">Talk to Debbie</a></div>
+      </div>
+      <div class="hero-split-image">
+        <img src="/images/page-heros/refinance-calculator.webp" alt="Hands using a calculator and reviewing mortgage paperwork on a wooden desk" width="1280" height="720" loading="eager" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.pmt-calc-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; max-width: 1100px; margin: 0 auto; }
+@media (max-width: 980px) { .pmt-calc-grid { grid-template-columns: 1fr; } }
+.pmt-panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+.pmt-panel-title {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin: 0 0 18px;
+}
+.pmt-input-group { margin-bottom: 22px; }
+.pmt-input-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.pmt-input-label .pmt-label-name { font-weight: 600; color: var(--charcoal); font-size: 0.95rem; }
+.pmt-input-label .pmt-input-val { font-weight: 600; color: var(--teal-dark); font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+input[type="range"].pmt-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--cream);
+  border-radius: 100px;
+  border: 0;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+input[type="range"].pmt-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  background: var(--teal);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(47, 52, 58, 0.18);
+  transition: transform 0.1s, background 0.15s;
+}
+input[type="range"].pmt-slider::-webkit-slider-thumb:hover { background: var(--teal-dark); transform: scale(1.1); }
+input[type="range"].pmt-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  background: var(--teal);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(47, 52, 58, 0.18);
+}
+.pmt-loan-amount-row {
+  background: var(--cream);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.pmt-loan-amount-row .pmt-la-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.pmt-loan-amount-row .pmt-la-val { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--teal-dark); }
+.pmt-term-btns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.pmt-term-btn {
+  padding: 10px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.pmt-term-btn:hover { border-color: var(--teal); }
+.pmt-term-btn.active { background: var(--teal); color: var(--white); border-color: var(--teal); }
+.pmt-rate-row { display: flex; gap: 8px; align-items: center; }
+.pmt-rate-row input[type="number"] { width: auto; flex: 1; max-width: 110px; padding: 8px 10px; }
+.pmt-rate-row .pmt-pct { font-size: 0.95rem; font-weight: 700; color: var(--text-muted); }
+.pmt-divider { height: 1px; background: var(--border); margin: 22px 0; }
+.pmt-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 540px) { .pmt-row2 { grid-template-columns: 1fr; } }
+.pmt-pmi-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--cream);
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Result panel */
+.pmt-result-total {
+  text-align: center;
+  padding: 18px 0 22px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 22px;
+}
+.pmt-result-total .pmt-rt-label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.pmt-result-total .pmt-rt-amount { font-family: var(--font-serif); font-size: 3.2rem; line-height: 1.05; color: var(--teal-dark); font-weight: 600; margin: 6px 0 4px; }
+.pmt-result-total .pmt-rt-detail { font-size: 0.82rem; color: var(--text-muted); }
+
+.pmt-donut-wrap { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: center; margin-bottom: 22px; }
+.pmt-donut {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: conic-gradient(var(--teal) 0deg 360deg);
+  position: relative;
+}
+.pmt-donut::after {
+  content: '';
+  position: absolute;
+  inset: 22px;
+  background: var(--white);
+  border-radius: 50%;
+}
+.pmt-legend { display: flex; flex-direction: column; gap: 8px; }
+.pmt-legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; }
+.pmt-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.pmt-legend-label { color: var(--charcoal); flex: 1; }
+.pmt-legend-amount { font-weight: 600; color: var(--charcoal); font-variant-numeric: tabular-nums; }
+
+.pmt-summary { display: flex; flex-direction: column; gap: 8px; }
+.pmt-summary-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+.pmt-summary-row:last-child { border-bottom: 0; }
+.pmt-summary-row.highlight { font-weight: 700; color: var(--charcoal); }
+.pmt-summary-row .pmt-s-label { color: var(--charcoal-soft); }
+.pmt-summary-row .pmt-s-val { color: var(--charcoal); font-variant-numeric: tabular-nums; }
+.pmt-summary-row.highlight .pmt-s-val { color: var(--teal-dark); }
+</style>
+
+<section id="calc-main">
+  <div class="container">
+    <div class="pmt-calc-grid">
+
+      <!-- LEFT: Inputs -->
+      <div class="pmt-panel">
+        <div class="pmt-panel-title">Loan Details</div>
+
+        <div class="pmt-input-group">
+          <div class="pmt-input-label"><span class="pmt-label-name">Home Price</span><span class="pmt-input-val" id="pmt-lbl-price">$400,000</span></div>
+          <input type="range" class="pmt-slider" id="pmt-sl-price" min="50000" max="2000000" step="5000" value="400000">
+        </div>
+
+        <div class="pmt-input-group">
+          <div class="pmt-input-label"><span class="pmt-label-name">Down Payment</span><span class="pmt-input-val"><span id="pmt-lbl-dp-pct">20%</span> &nbsp;&middot;&nbsp; <span id="pmt-lbl-dp-dollar">$80,000</span></span></div>
+          <input type="range" class="pmt-slider" id="pmt-sl-dp" min="0" max="60" step="1" value="20">
+          <div class="pmt-pmi-note" id="pmt-pmi-note" style="display:none">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span>PMI typically applies when down payment is under 20%.</span>
+          </div>
+        </div>
+
+        <div class="pmt-loan-amount-row">
+          <span class="pmt-la-label">Loan Amount</span>
+          <span class="pmt-la-val" id="pmt-lbl-loan">$320,000</span>
+        </div>
+
+        <div class="pmt-input-group">
+          <div class="pmt-input-label"><span class="pmt-label-name">Loan Term</span></div>
+          <div class="pmt-term-btns">
+            <button type="button" class="pmt-term-btn active" data-term="30">30 yr</button>
+            <button type="button" class="pmt-term-btn" data-term="20">20 yr</button>
+            <button type="button" class="pmt-term-btn" data-term="15">15 yr</button>
+            <button type="button" class="pmt-term-btn" data-term="10">10 yr</button>
+          </div>
+        </div>
+
+        <div class="pmt-input-group">
+          <div class="pmt-input-label"><span class="pmt-label-name">Interest Rate</span></div>
+          <div class="pmt-rate-row">
+            <input type="number" id="pmt-inp-rate" step="0.125" min="1" max="20" value="6.85">
+            <span class="pmt-pct">%</span>
+          </div>
+          <input type="range" class="pmt-slider" id="pmt-sl-rate" min="2" max="15" step="0.125" value="6.85" style="margin-top:10px">
+        </div>
+
+        <div class="pmt-divider"></div>
+        <div class="pmt-panel-title">Monthly Expenses</div>
+
+        <div class="pmt-row2">
+          <div class="pmt-input-group">
+            <div class="pmt-input-label"><span class="pmt-label-name">Property Tax</span><span class="pmt-input-val" id="pmt-lbl-tax">1.10%</span></div>
+            <input type="range" class="pmt-slider" id="pmt-sl-tax" min="0" max="4" step="0.05" value="1.10">
+          </div>
+
+          <div class="pmt-input-group">
+            <div class="pmt-input-label"><span class="pmt-label-name">Home Insurance</span><span class="pmt-input-val" id="pmt-lbl-ins">$167/mo</span></div>
+            <input type="range" class="pmt-slider" id="pmt-sl-ins" min="0" max="1" step="0.05" value="0.5">
+          </div>
+
+          <div class="pmt-input-group" id="pmt-pmi-group">
+            <div class="pmt-input-label"><span class="pmt-label-name">PMI Rate</span><span class="pmt-input-val" id="pmt-lbl-pmi">0.50%</span></div>
+            <input type="range" class="pmt-slider" id="pmt-sl-pmi" min="0.1" max="2" step="0.05" value="0.5">
+          </div>
+
+          <div class="pmt-input-group">
+            <div class="pmt-input-label"><span class="pmt-label-name">HOA</span><span class="pmt-input-val" id="pmt-lbl-hoa">$0/mo</span></div>
+            <input type="range" class="pmt-slider" id="pmt-sl-hoa" min="0" max="1000" step="25" value="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Results -->
+      <div class="pmt-panel">
+        <div class="pmt-result-total">
+          <div class="pmt-rt-label">Estimated Monthly Payment</div>
+          <div class="pmt-rt-amount" id="pmt-res-total">$2,632</div>
+          <div class="pmt-rt-detail">Principal, interest, taxes &amp; insurance</div>
+        </div>
+
+        <div class="pmt-donut-wrap">
+          <div class="pmt-donut" id="pmt-donut"></div>
+          <div class="pmt-legend">
+            <div class="pmt-legend-item"><div class="pmt-legend-dot" style="background:var(--teal)"></div><span class="pmt-legend-label">Principal &amp; Interest</span><span class="pmt-legend-amount" id="pmt-leg-pi">$2,099</span></div>
+            <div class="pmt-legend-item"><div class="pmt-legend-dot" style="background:var(--rose)"></div><span class="pmt-legend-label">Property Tax</span><span class="pmt-legend-amount" id="pmt-leg-tax">$367</span></div>
+            <div class="pmt-legend-item"><div class="pmt-legend-dot" style="background:#E8A04A"></div><span class="pmt-legend-label">Insurance</span><span class="pmt-legend-amount" id="pmt-leg-ins">$167</span></div>
+            <div class="pmt-legend-item" id="pmt-leg-pmi-row" style="display:none"><div class="pmt-legend-dot" style="background:#B07868"></div><span class="pmt-legend-label">PMI</span><span class="pmt-legend-amount" id="pmt-leg-pmi">$0</span></div>
+            <div class="pmt-legend-item" id="pmt-leg-hoa-row" style="display:none"><div class="pmt-legend-dot" style="background:var(--charcoal-soft)"></div><span class="pmt-legend-label">HOA</span><span class="pmt-legend-amount" id="pmt-leg-hoa">$0</span></div>
+          </div>
+        </div>
+
+        <div class="pmt-divider"></div>
+
+        <div class="pmt-summary">
+          <div class="pmt-summary-row"><span class="pmt-s-label">Loan Amount</span><span class="pmt-s-val" id="pmt-sum-loan">$320,000</span></div>
+          <div class="pmt-summary-row"><span class="pmt-s-label">Interest Rate</span><span class="pmt-s-val" id="pmt-sum-rate">6.85%</span></div>
+          <div class="pmt-summary-row"><span class="pmt-s-label">Loan Term</span><span class="pmt-s-val" id="pmt-sum-term">30 years</span></div>
+          <div class="pmt-summary-row"><span class="pmt-s-label">Payoff Date</span><span class="pmt-s-val" id="pmt-sum-payoff">—</span></div>
+          <div class="pmt-summary-row highlight"><span class="pmt-s-label">Total Interest Paid</span><span class="pmt-s-val" id="pmt-sum-interest">—</span></div>
+          <div class="pmt-summary-row highlight"><span class="pmt-s-label">Total Cost of Loan</span><span class="pmt-s-val" id="pmt-sum-total">—</span></div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg" style="width:100%; margin-top:24px;" onclick="document.getElementById('pmt-lead-section').scrollIntoView({behavior:'smooth'})">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+          Email me this report &amp; get a quote
+        </button>
+      </div>
+    </div>
+
+    <p class="calc-disclaimer" style="margin-top:32px; max-width:1100px; margin-left:auto; margin-right:auto;">
+      <strong>For estimation only.</strong> This calculator illustrates an approximate monthly payment based on your inputs. Property tax and insurance rates are illustrative — your actual escrow amounts depend on the specific property and provider. PMI rates vary by lender and credit profile. This is not a loan offer, rate quote, pre-qualification, or commitment to lend. Actual rates and terms depend on credit, property, and program eligibility. <a href="/contact/">Contact Debbie</a> for a personalized quote.
+    </p>
+  </div>
+</section>
+
+<!-- ── LEAD CAPTURE SECTION ── -->
+<section class="section-alt" id="pmt-lead-section">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; max-width:1100px; margin:0 auto; align-items:start;">
+      <div>
+        <span class="eyebrow">Get a Personalized Quote</span>
+        <h2 style="margin-bottom:16px">Ready to see what you actually qualify for?</h2>
+        <p style="color:var(--charcoal-soft); font-size:1.05rem; line-height:1.65;">Your calculator estimate is just the starting point. Debbie compares dozens of wholesale lenders to find the program and rate that genuinely fit your credit, income, and goals — not the one her employer happens to sell.</p>
+        <ul style="list-style:none; padding:0; margin:24px 0;">
+          <li style="display:flex; gap:10px; align-items:flex-start; padding:8px 0; color:var(--charcoal-soft);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg><span>Personalized rate comparison &mdash; not a generic estimate</span></li>
+          <li style="display:flex; gap:10px; align-items:flex-start; padding:8px 0; color:var(--charcoal-soft);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg><span>Conventional, FHA, VA, jumbo, and reverse options</span></li>
+          <li style="display:flex; gap:10px; align-items:flex-start; padding:8px 0; color:var(--charcoal-soft);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg><span>40+ years of Florida experience &mdash; honest counsel, no pressure</span></li>
+          <li style="display:flex; gap:10px; align-items:flex-start; padding:8px 0; color:var(--charcoal-soft);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg><span>Fast response &mdash; within one business day</span></li>
+        </ul>
+      </div>
+
+      <div class="lead-form-wrap" style="margin:0;">
+        <form action="https://myaieditor.com/api/form-notify" method="POST" data-ajax id="pmtLeadForm">
+          <div class="form-fields">
+            <input type="hidden" name="site_slug" value="debbie-cooley-mortgage">
+            <input type="hidden" name="form_type" value="payment-calculator-lead">
+            <input type="hidden" name="recaptcha_token" id="pmt-recaptcha-token">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <!-- Calculator context (populated each time calc runs) -->
+            <input type="hidden" name="calc_home_price"        id="pmt-ctx-price">
+            <input type="hidden" name="calc_down_payment"      id="pmt-ctx-dp">
+            <input type="hidden" name="calc_loan_amount"       id="pmt-ctx-loan">
+            <input type="hidden" name="calc_interest_rate"     id="pmt-ctx-rate">
+            <input type="hidden" name="calc_loan_term"         id="pmt-ctx-term">
+            <input type="hidden" name="calc_property_tax"      id="pmt-ctx-tax">
+            <input type="hidden" name="calc_insurance"         id="pmt-ctx-ins">
+            <input type="hidden" name="calc_pmi"               id="pmt-ctx-pmi">
+            <input type="hidden" name="calc_hoa"               id="pmt-ctx-hoa">
+            <input type="hidden" name="calc_total_payment"     id="pmt-ctx-total">
+            <input type="hidden" name="calc_total_interest"    id="pmt-ctx-tot-int">
+            <input type="hidden" name="calc_total_cost"        id="pmt-ctx-tot-cost">
+
+            <div style="background:var(--cream); padding:14px 16px; border-radius:8px; font-size:0.88rem; color:var(--charcoal-soft); margin-bottom:18px; border-left:3px solid var(--teal);" id="pmt-lead-summary">
+              Based on your calculator: <strong style="color:var(--charcoal)" id="pmt-ls-price">$400,000</strong> home,
+              <strong style="color:var(--charcoal)" id="pmt-ls-loan">$320,000</strong> loan @
+              <strong style="color:var(--charcoal)" id="pmt-ls-rate">6.85%</strong>,
+              <strong style="color:var(--charcoal)" id="pmt-ls-term">30 yr</strong> &mdash;
+              est. <strong style="color:var(--teal-dark)" id="pmt-ls-payment">$2,632</strong>/mo
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pl-first">First Name *</label>
+                <input type="text" id="pl-first" name="first_name" required autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <label for="pl-last">Last Name *</label>
+                <input type="text" id="pl-last" name="last_name" required autocomplete="family-name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pl-email">Email *</label>
+                <input type="email" id="pl-email" name="email" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="pl-phone">Phone *</label>
+                <input type="tel" id="pl-phone" name="phone" required autocomplete="tel" placeholder="(727) 555-0123">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pl-goal">I&rsquo;m looking to&hellip;</label>
+              <select id="pl-goal" name="goal">
+                <option value="">Select&hellip;</option>
+                <option value="Buy a home">Buy a home</option>
+                <option value="Refinance my mortgage">Refinance my mortgage</option>
+                <option value="Cash-out refinance">Cash-out refinance</option>
+                <option value="HELOC / home equity">HELOC / home equity</option>
+                <option value="Reverse mortgage (62+)">Reverse mortgage (62+)</option>
+                <option value="Just exploring">Just exploring my options</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pl-timeline">Timeline</label>
+              <select id="pl-timeline" name="timeline">
+                <option value="">Select&hellip;</option>
+                <option value="ASAP">As soon as possible</option>
+                <option value="1-3 months">In the next 1&ndash;3 months</option>
+                <option value="3-6 months">3&ndash;6 months from now</option>
+                <option value="Just exploring">Just exploring</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pl-notes">Anything else Debbie should know? (optional)</label>
+              <textarea id="pl-notes" name="notes" rows="3" placeholder="e.g., 'Self-employed', 'Looking in Trinity', 'First-time buyer'&hellip;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Send my report &amp; get a quote &rarr;</button>
+            <p class="form-consent">By submitting, you consent to receive communications from Debbie Cooley Mortgage about your inquiry. Message frequency varies; standard rates may apply. You may opt out at any time. This is not an application for credit or a commitment to lend.</p>
+          </div>
+          <div class="form-success">
+            <div class="success-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Got it &mdash; Debbie will be in touch.</h3>
+            <p>Your calculator report has been sent. Debbie personally reviews every inquiry and will reach out within one business day with a personalized quote. For urgent questions:</p>
+            <a href="tel:7276882851" class="btn btn-primary" style="margin-top:8px">Call 727-688-2851</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+  let term = 30;
+
+  const $ = (id) => document.getElementById(id);
+  const slPrice = $('pmt-sl-price');
+  const slDp = $('pmt-sl-dp');
+  const slRate = $('pmt-sl-rate');
+  const inpRate = $('pmt-inp-rate');
+  const slTax = $('pmt-sl-tax');
+  const slIns = $('pmt-sl-ins');
+  const slPmi = $('pmt-sl-pmi');
+  const slHoa = $('pmt-sl-hoa');
+
+  function pmt(p, r, n) {
+    if (r === 0) return p / n;
+    return p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+  }
+
+  function recalc() {
+    const price = +slPrice.value;
+    const dpPct = +slDp.value;
+    const dp = price * (dpPct / 100);
+    const loan = price - dp;
+    const rate = +inpRate.value;
+    const taxPct = +slTax.value;
+    const insPct = +slIns.value;
+    const pmiPct = +slPmi.value;
+    const hoa = +slHoa.value;
+
+    const monthlyPI = pmt(loan, rate / 100 / 12, term * 12);
+    const monthlyTax = (price * (taxPct / 100)) / 12;
+    const monthlyIns = (price * (insPct / 100)) / 12;
+    const monthlyPMI = dpPct < 20 ? (loan * (pmiPct / 100)) / 12 : 0;
+    const total = monthlyPI + monthlyTax + monthlyIns + monthlyPMI + hoa;
+
+    const totalInterest = (monthlyPI * term * 12) - loan;
+    const totalCost = loan + totalInterest;
+    const payoffDate = new Date();
+    payoffDate.setFullYear(payoffDate.getFullYear() + term);
+    const payoff = payoffDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+
+    // Labels
+    $('pmt-lbl-price').textContent = fmt.format(price);
+    $('pmt-lbl-dp-pct').textContent = dpPct + '%';
+    $('pmt-lbl-dp-dollar').textContent = fmt.format(dp);
+    $('pmt-lbl-loan').textContent = fmt.format(loan);
+    $('pmt-lbl-tax').textContent = taxPct.toFixed(2) + '%';
+    $('pmt-lbl-ins').textContent = '$' + Math.round(monthlyIns) + '/mo';
+    $('pmt-lbl-pmi').textContent = pmiPct.toFixed(2) + '%';
+    $('pmt-lbl-hoa').textContent = '$' + hoa + '/mo';
+    $('pmt-pmi-note').style.display = dpPct < 20 ? 'flex' : 'none';
+    $('pmt-pmi-group').style.opacity = dpPct < 20 ? '1' : '0.45';
+
+    // Result
+    $('pmt-res-total').textContent = fmt.format(total);
+    $('pmt-leg-pi').textContent = fmt.format(monthlyPI);
+    $('pmt-leg-tax').textContent = fmt.format(monthlyTax);
+    $('pmt-leg-ins').textContent = fmt.format(monthlyIns);
+    $('pmt-leg-pmi').textContent = fmt.format(monthlyPMI);
+    $('pmt-leg-hoa').textContent = fmt.format(hoa);
+    $('pmt-leg-pmi-row').style.display = monthlyPMI > 0 ? 'flex' : 'none';
+    $('pmt-leg-hoa-row').style.display = hoa > 0 ? 'flex' : 'none';
+
+    // Donut chart (CSS conic-gradient)
+    const slices = [
+      [monthlyPI, 'var(--teal)'],
+      [monthlyTax, 'var(--rose)'],
+      [monthlyIns, '#E8A04A'],
+      [monthlyPMI, '#B07868'],
+      [hoa, 'var(--charcoal-soft)'],
+    ].filter(([v]) => v > 0);
+    let acc = 0;
+    const stops = slices.map(([v, c]) => {
+      const startPct = (acc / total) * 100;
+      acc += v;
+      const endPct = (acc / total) * 100;
+      return c + ' ' + startPct + '% ' + endPct + '%';
+    });
+    $('pmt-donut').style.background = 'conic-gradient(' + stops.join(', ') + ')';
+
+    // Summary
+    $('pmt-sum-loan').textContent = fmt.format(loan);
+    $('pmt-sum-rate').textContent = rate.toFixed(3).replace(/0+$/,'').replace(/\.$/,'') + '%';
+    $('pmt-sum-term').textContent = term + ' years';
+    $('pmt-sum-payoff').textContent = payoff;
+    $('pmt-sum-interest').textContent = fmt.format(totalInterest);
+    $('pmt-sum-total').textContent = fmt.format(totalCost);
+
+    // Lead-form summary chip + hidden context
+    $('pmt-ls-price').textContent = fmt.format(price);
+    $('pmt-ls-loan').textContent = fmt.format(loan);
+    $('pmt-ls-rate').textContent = rate + '%';
+    $('pmt-ls-term').textContent = term + ' yr';
+    $('pmt-ls-payment').textContent = fmt.format(total);
+
+    $('pmt-ctx-price').value = fmt.format(price);
+    $('pmt-ctx-dp').value = fmt.format(dp) + ' (' + dpPct + '%)';
+    $('pmt-ctx-loan').value = fmt.format(loan);
+    $('pmt-ctx-rate').value = rate + '%';
+    $('pmt-ctx-term').value = term + ' yr';
+    $('pmt-ctx-tax').value = fmt.format(monthlyTax) + '/mo (' + taxPct.toFixed(2) + '%)';
+    $('pmt-ctx-ins').value = fmt.format(monthlyIns) + '/mo';
+    $('pmt-ctx-pmi').value = monthlyPMI > 0 ? fmt.format(monthlyPMI) + '/mo (' + pmiPct + '%)' : 'N/A';
+    $('pmt-ctx-hoa').value = hoa > 0 ? fmt.format(hoa) + '/mo' : 'N/A';
+    $('pmt-ctx-total').value = fmt.format(total);
+    $('pmt-ctx-tot-int').value = fmt.format(totalInterest);
+    $('pmt-ctx-tot-cost').value = fmt.format(totalCost);
+  }
+
+  // Wire inputs
+  [slPrice, slDp, slRate, slTax, slIns, slPmi, slHoa].forEach(el => el.addEventListener('input', recalc));
+  inpRate.addEventListener('input', () => { slRate.value = inpRate.value; recalc(); });
+  slRate.addEventListener('input', () => { inpRate.value = slRate.value; recalc(); });
+
+  // Term buttons
+  document.querySelectorAll('.pmt-term-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pmt-term-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      term = +btn.dataset.term;
+      recalc();
+    });
+  });
+
+  recalc();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/logo-monogram.webp" alt="Debbie Cooley Mortgage" width="56" height="56">
+        <h3>Debbie Cooley Mortgage</h3>
+        <p class="footer-tag">Where a Broker Is Always Better</p>
+        <p>Independent Florida mortgage broker serving Pasco, Pinellas &amp; Hillsborough Counties since 1984.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/DebbieCooleymortgage/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/debbiecooleyguy/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/debbiecooleymortgage/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCzzZ6Tz-GzcJHmdVkH_S-8g" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.95-.5-5.85a3 3 0 0 0-2.12-2.13C18.49 3.5 12 3.5 12 3.5s-6.49 0-8.38.52A3 3 0 0 0 1.5 6.15C1 8.05 1 12 1 12s0 3.95.5 5.85a3 3 0 0 0 2.12 2.13c1.89.52 8.38.52 8.38.52s6.49 0 8.38-.52a3 3 0 0 0 2.12-2.13C23 15.95 23 12 23 12z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98" fill="#FFF"/></svg>
+          </a>
+          <a href="https://share.google/rrhWMI5hn6wyYMmpK" target="_blank" rel="noopener" aria-label="Google Business Profile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Loan Programs</h4>
+        <a href="/conventional-loans/">Conventional</a>
+        <a href="/fha-loans/">FHA Loans</a>
+        <a href="/va-loans/">VA Loans</a>
+        <a href="/reverse-mortgage/">Reverse Mortgages</a>
+        <a href="/first-time-buyer/">First-Time Buyer</a>
+        <a href="/refinance/">Refinance &amp; HELOC</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tools &amp; Resources</h4>
+        <a href="/tools/refinance-calculator/">Refinance Calculator</a>
+        <a href="/tools/reverse-mortgage-quiz/">Reverse Mortgage Quiz</a>
+        <a href="/resources/refinancing-during-divorce/">Refinancing During Divorce</a>
+        <a href="/resources/first-time-homebuyer-roadmap/">First-Time Buyer Roadmap</a>
+        <a href="/resources/5-questions-to-ask-any-mortgage-broker/">5 Questions to Ask</a>
+        <a href="/blog/">Blog</a>
+        <a href="/faq/">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:7276882851">727-688-2851</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+          <a href="mailto:debbie@debbiecooleymortgage.com">debbie@debbiecooleymortgage.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Mon–Fri 8am–6pm<br>Sat–Sun: Closed</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>New Port Richey, FL<br>In-person, broker-comes-to-you service</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-compliance">
+      <div class="ehl">
+        <svg width="34" height="34" viewBox="0 0 64 64" fill="currentColor" aria-label="Equal Housing Opportunity">
+          <path d="M32 4 L4 28 L12 28 L12 56 L52 56 L52 28 L60 28 Z M22 36 L42 36 L42 40 L22 40 Z M22 44 L42 44 L42 48 L22 48 Z"/>
+        </svg>
+        <div><strong>Equal Housing Opportunity Lender.</strong><br>We do business in accordance with the Federal Fair Housing Law and the Equal Credit Opportunity Act.</div>
+      </div>
+      <p><strong>Debbie Cooley</strong> | Mortgage Loan Originator | NMLS# 210817 &middot; <strong>Innovative Mortgage Services, Inc.</strong> | NMLS# 250769 &middot; <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/210817" target="_blank" rel="noopener nofollow">NMLS Consumer Access</a></p>
+      <p>Licensed by the Florida Office of Financial Regulation. This site is for informational purposes only. Information provided is not an offer to lend, a loan commitment, or a guarantee of any specific loan terms or rates. Loan approval is subject to credit, income, asset, property, and program qualification. Rates, terms, and programs subject to change without notice. Not all applicants will qualify. Consult a tax professional regarding the deductibility of interest.</p>
+      <p>Reverse mortgage borrowers are required to obtain an eligibility certificate by receiving counseling from a HUD-approved counseling agency. Borrowers must continue to pay property taxes, homeowner's insurance, and maintain the property to retain the loan in good standing.</p>
+      <p style="font-size:0.72rem; opacity:0.6">Protected by reCAPTCHA. <a href="https://policies.google.com/privacy">Privacy</a> &middot; <a href="https://policies.google.com/terms">Terms</a></p>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year">2026</span> Debbie Cooley Mortgage. All rights reserved.</span>
+      <span><a href="/privacy/">Privacy Policy</a> &middot; <a href="/disclaimer/">Legal Disclaimer</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
