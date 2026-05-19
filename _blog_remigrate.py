@@ -313,14 +313,15 @@ def clean_body(body):
     # 7. Strip <div> tags entirely (let CSS handle layout)
     body = re.sub(r'</?div[^>]*>', '', body, flags=re.IGNORECASE)
 
-    # 8. Strip the trailing author/contact block. Pattern is "Debbie Cooley Mortgage | NMLS #..."
-    #    or "call Debbie Cooley Guy with Innovative Mortgage" or
-    #    "Debbie Cooley Mortgage NMLS #836635" (which is a STALE, INCORRECT NMLS).
-    #    Cut from any of these markers to end-of-body.
+    # 8. Strip the trailing author/contact block — old WordPress boilerplate
+    #    ("Debbie Cooley Mortgage | NMLS #...", "call Debbie Cooley Guy with
+    #    Innovative Mortgage", etc.). The static site appends its own current
+    #    footer (Debbie Cooley Mortgage, NMLS# 836635), so the legacy block is
+    #    redundant. Cut from any of these markers to end-of-body.
     end_markers = [
         r'<p>[^<]*Debbie Cooley Mortgage\s*\|\s*NMLS',
         r'<p>[^<]*Debbie Cooley Guy[^<]*Loan Originator',
-        r'Debbie Cooley Mortgage \| NMLS #836635',  # STALE NMLS — strip on sight
+        r'Debbie Cooley Mortgage \| NMLS #836635',  # legacy WP author block — strip
         r'<p>[^<]*Equal Housing Lender[^<]*</p>',
         r'<p>[^<]*call Debbie Cooley Guy with Innovative Mortgage',
         r'<p>[^<]*Debbie Cooley\s*\|\s*Mortgage Loan Originator',
