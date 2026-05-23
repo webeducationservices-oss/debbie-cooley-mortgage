@@ -8,7 +8,7 @@ _build_*.py
 __pycache__/
 
 # Internal compliance reports (do NOT deploy to the public site)
-COMPLIANCE-*.md
+COMPLIANCE-*
 
 # Local preview
 .claude/
