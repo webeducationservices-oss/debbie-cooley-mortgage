@@ -1,7 +1,4 @@
 name,type,ttl,value
-debbiecooleymortgage.com,NS,86400,ns6569.hostgator.com.
-debbiecooleymortgage.com,NS,86400,ns6570.hostgator.com.
-debbiecooleymortgage.com,SOA,86400,ns6569.hostgator.com. root.gator3285.hostgator.com. 2026041701 86400 7200 3600000 86400
 autodiscover.debbiecooleymortgage.com,A,14400,162.144.12.129
 debbiecooleymortgage.com,A,14400,162.144.12.129
 mail.debbiecooleymortgage.com,A,14400,162.144.12.129
