@@ -991,6 +991,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
   </form>
 
+  <!-- Multi-step navigation (Next / Back / progress) for the inventory form -->
+  <script>
+  (function(){
+    var form = document.getElementById('inventForm');
+    if (!form) return;
+    var steps = Array.prototype.slice.call(form.querySelectorAll('.invent-step'));
+    var total = steps.length;
+    var bar = document.getElementById('progressBar');
+
+    function current(){
+      for (var i = 0; i < steps.length; i++) {
+        if (steps[i].classList.contains('active')) {
+          return parseInt(steps[i].getAttribute('data-step'), 10) || (i + 1);
+        }
+      }
+      return 1;
+    }
+    function show(n){
+      if (n < 1) n = 1; if (n > total) n = total;
+      steps.forEach(function(s){
+        var idx = parseInt(s.getAttribute('data-step'), 10);
+        s.classList.toggle('active', idx === n);
+      });
+      if (bar) bar.style.width = Math.round((n / total) * 100) + '%';
+      // Scroll the form's progress bar (top of the wizard) back into view so
+      // the next step starts at the top, not mid-scroll.
+      var top = (bar && bar.parentElement) ? bar.parentElement : form;
+      var rect = top.getBoundingClientRect();
+      window.scrollTo({ top: window.scrollY + rect.top - 80, behavior: 'smooth' });
+    }
+    window.nextStep = function(){ show(current() + 1); };
+    window.prevStep = function(){ show(current() - 1); };
+  })();
+  </script>
+
   <!-- ========== REPORT (shown after submit) ========== -->
   <div id="reportView" style="display:none;">
     <div class="report-header">
