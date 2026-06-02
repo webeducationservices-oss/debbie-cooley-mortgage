@@ -1026,6 +1026,106 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   })();
   </script>
 
+  <!-- Row-add handlers for each inventory section -->
+  <script>
+  (function(){
+    var cfg = {
+      cash:       { list:'cashList',       title:'cashAddedTitle',       cols:3, f:[
+        {n:'institution', l:'Bank / institution', p:'e.g. Wells Fargo'},
+        {n:'balance',     l:'Approximate balance', p:'$0'},
+        {n:'owner',       l:'Whose name?', s:['Me','Spouse','Joint']},
+      ]},
+      invest:     { list:'investList',     title:'investAddedTitle',     cols:3, f:[
+        {n:'institution', l:'Institution / plan provider', p:'e.g. Fidelity'},
+        {n:'balance',     l:'Approximate balance', p:'$0'},
+        {n:'owner',       l:'Whose name?', s:['Me','Spouse','Joint']},
+      ]},
+      realEstate: { list:'realEstateList', title:'realEstateAddedTitle', cols:2, f:[
+        {n:'address',  l:'Address or description', p:'e.g. 123 Main St, Trinity FL'},
+        {n:'value',    l:'Estimated market value', p:'$0'},
+        {n:'mortgage', l:'Mortgage balance remaining', p:'$0 if paid off'},
+        {n:'owner',    l:'Title held by', s:['Me','Spouse','Joint']},
+      ]},
+      vehicle:    { list:'vehicleList',    title:'vehicleAddedTitle',    cols:2, f:[
+        {n:'desc',  l:'Year, make, and model', p:'e.g. 2021 Honda CR-V'},
+        {n:'value', l:'Estimated value', p:'$0'},
+        {n:'loan',  l:'Loan balance remaining', p:'$0 if paid off'},
+        {n:'owner', l:'Title held by', s:['Me','Spouse','Joint']},
+      ]},
+      debt:       { list:'debtList',       title:'debtAddedTitle',       cols:3, f:[
+        {n:'creditor', l:'Creditor / lender', p:'e.g. Chase'},
+        {n:'balance',  l:'Approximate balance', p:'$0'},
+        {n:'payment',  l:'Monthly payment', p:'$0'},
+      ]},
+      otherAsset: { list:'otherAssetList', title:'otherAssetAddedTitle', cols:3, f:[
+        {n:'desc',  l:'What is it?', p:'e.g. Coin collection'},
+        {n:'value', l:'Estimated value', p:'$0'},
+        {n:'owner', l:'Owner', s:['Me','Spouse','Joint']},
+      ]},
+    };
+    var counters = {};
+
+    function field(f, key, i) {
+      var nm = key + '_' + i + '_' + f.n;
+      if (f.s) {
+        return '<div class="form-group"><label>' + f.l + '</label>'
+          + '<select name="' + nm + '">'
+          + f.s.map(function(o){return '<option>' + o + '</option>';}).join('')
+          + '</select></div>';
+      }
+      return '<div class="form-group"><label>' + f.l + '</label>'
+        + '<input type="text" name="' + nm + '" placeholder="' + (f.p||'') + '"></div>';
+    }
+
+    function add(key, type) {
+      var c = cfg[key]; if (!c) return;
+      counters[key] = (counters[key] || 0) + 1;
+      var i = counters[key];
+      var listEl = document.getElementById(c.list);
+      var titleEl = document.getElementById(c.title);
+      if (!listEl) return;
+      var grid = c.cols === 3 ? 'row-grid-3' : 'row-grid';
+      var safeType = (type||'').replace(/"/g, '&quot;');
+      var div = document.createElement('div');
+      div.className = 'row-item';
+      div.innerHTML =
+        '<input type="hidden" name="' + key + '_' + i + '_type" value="' + safeType + '">'
+        + '<div class="row-num">' + (listEl.children.length + 1) + '</div>'
+        + (type ? '<div style="font-weight:600;color:var(--charcoal);margin:4px 0 12px;">' + type + '</div>' : '')
+        + '<div class="' + grid + '">'
+          + c.f.map(function(f){return field(f, key, i);}).join('')
+        + '</div>'
+        + '<button type="button" class="row-remove" onclick="window.removeRow(this)">Remove</button>';
+      listEl.appendChild(div);
+      if (titleEl) titleEl.classList.add('show');
+      var firstInput = div.querySelector('input[type="text"], select');
+      if (firstInput) firstInput.focus();
+    }
+
+    window.addCash       = function(t){ add('cash', t); };
+    window.addInvest     = function(t){ add('invest', t); };
+    window.addRealEstate = function(t){ add('realEstate', t); };
+    window.addVehicle    = function(t){ add('vehicle', t); };
+    window.addDebt       = function(t){ add('debt', t); };
+    window.addOtherAsset = function(t){ add('otherAsset', t); };
+
+    window.removeRow = function(btn) {
+      var item = btn.closest('.row-item');
+      if (!item) return;
+      var list = item.parentElement;
+      list.removeChild(item);
+      Array.prototype.forEach.call(list.children, function(el, idx){
+        var n = el.querySelector('.row-num');
+        if (n) n.textContent = (idx + 1);
+      });
+      if (list.children.length === 0) {
+        var t = document.getElementById(list.id.replace(/List$/, 'AddedTitle'));
+        if (t) t.classList.remove('show');
+      }
+    };
+  })();
+  </script>
+
   <!-- ========== REPORT (shown after submit) ========== -->
   <div id="reportView" style="display:none;">
     <div class="report-header">
