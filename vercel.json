@@ -395,6 +395,11 @@
       "source": "/first-time-homebuyer-loans/",
       "destination": "/first-time-buyer/",
       "permanent": true
+    },
+    {
+      "source": "/qr/",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
