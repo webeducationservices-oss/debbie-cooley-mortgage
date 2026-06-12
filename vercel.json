@@ -398,7 +398,7 @@
     },
     {
       "source": "/qr/",
-      "destination": "/",
+      "destination": "/tools/refinance-calculator/",
       "permanent": true
     }
   ]
