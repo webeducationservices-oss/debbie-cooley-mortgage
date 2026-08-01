@@ -72,6 +72,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 .invent-step { display: none; }
 .invent-step.active { display: block; animation: fadeIn 0.3s ease; }
+/* Once the shared AJAX handler reveals the confirmation it hides .form-fields,
+   so the progress bar and step counter above the form are stale. Hide them too. */
+.invent-wrap:has(.form-success.show) .invent-progress,
+.invent-wrap:has(.form-success.show) .invent-stepcount { display: none; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
 .invent-nav { display: flex; gap: 12px; justify-content: space-between; margin-top: 32px; }
@@ -453,7 +457,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ============ WIZARD ============ -->
 <div class="invent-wrap" id="inventApp">
   <div class="invent-progress" aria-label="Progress"><div class="invent-progress-bar" id="progressBar" style="width: 10%"></div></div>
-  <div style="text-align:center; margin-bottom: 18px; font-size: 0.85rem; color: var(--text-muted);"><span id="stepNum">Step 1</span> of <span id="stepTotal">10</span></div>
+  <div class="invent-stepcount" style="text-align:center; margin-bottom: 18px; font-size: 0.85rem; color: var(--text-muted);"><span id="stepNum">Step 1</span> of <span id="stepTotal">10</span></div>
 
   <form id="inventForm" data-ajax>
   <div class="form-fields">
