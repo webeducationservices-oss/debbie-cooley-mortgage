@@ -1,0 +1,45 @@
+# Build/tooling scripts
+_build_*.py
+_sync_*.py
+
+# Docs & internal reports (never deploy)
+CLAUDE.md
+README.md
+*.md
+ADMIN-PORTAL.md
+FIRST-TIME-DEPLOYMENT.md
+BLOG-TEMPLATE.md
+COMPLIANCE-*.md
+COMPLIANCE-*.pdf
+
+# Environments and secrets
+.env
+.env.*
+*.env
+.venv/
+node_modules/
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Git housekeeping
+.gitignore
+.gitattributes
+
+# Explicit: keep vercel.json, sitemap.xml, robots.txt, llms.txt, all runtime assets
+!vercel.json
+!sitemap.xml
+!robots.txt
+!llms.txt
+!components.js
+!mae-edit-loader.js
+!styles.css
+!favicon.ico
+!images/
+!fonts/
+!downloads/
+!blog/
+!resources/
+!tools/
