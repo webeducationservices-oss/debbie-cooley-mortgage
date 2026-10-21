@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /thank-you
-Disallow: /404
 
 Sitemap: https://debbiecooleymortgage.com/sitemap.xml
